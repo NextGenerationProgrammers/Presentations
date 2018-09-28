@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>RSA</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/league.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/user/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/vs2015.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>RSA-Kryptosystem</h1>
+					<h2>Ein asymmetrischer Verschlüsselungsalgorithmus</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Einführung</h2>
+					</section>
+					<section>
+						<h3>Fakten</h3>
+						<ul class="grid-two fragment">
+							<li>Asymmetrisches Kryptosystem</li>
+							<li>Entwickelt 1977
+								<ul>
+									<li>Ron     <strong style="color: red">R</strong>ivest</li>
+									<li>Adi     <strong style="color: red">S</strong>hamir</li>
+									<li>Leonard <strong style="color: red">A</strong>dleman</li>
+								</ul>
+							</li>
+							<li>Beruht auf dem Problem, dass es mathematisch extrem schwierig ist, große Zahlen zu faktorisieren</li>
+							
+						</ul>&#8203;
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Funktionsweise</h2>
+					</section>
+					<section>
+						<h3>Schlüsselerzeugung</h3>
+						<ol>
+							<li>öffentlichen Schlüssel generieren</li>
+							<li>privaten Schlüssel generieren</li>
+						</ol>
+					</section>
+					<section>
+						<h3>Public Key</h3>
+						<ol>
+							<li>3 Primzahlen wähen (p, q, e)</li>
+							<li>N berechnen ( (p-1)*(q-1) )</li>
+							<li>Public Key: (e, N)</li>
+						</ol>
+					</section>
+					
+					<section>
+						<h3>Private Key</h3>
+						<ol>
+							<li>&phi;<sub>(N)</sub> berechnen</li>
+							<li>d berechnen</li>
+							<li>Private Key: (d, N)</li>
+						</ol>
+					</section>
+					<section>
+						<h3>d berechnen</h3>
+						Gleichung e*d &equiv; 1 mod &phi;<sub>(N)</sub> lösen.
+						<br>Wie?? <span class="fla fragment"><strong>Mit dem erweiterten euklidischen Algorithmus</strong></span>
+					</section>
+					<section>
+						<h3>d berechnen</h3>
+						<table>
+							<tr>
+								<td>a</td>
+								<td>b</td>
+								<td>q</td>
+								<td>r</td>
+								<td>x</td>
+								<td>y</td>
+							</tr>
+							<tr>
+								<td><strong style="color: red">47</strong></td>
+								<td><strong style="color: red">60</strong></td>
+								<td>0</td>
+								<td>47</td>
+								<td><strong style="color: green">23</strong></td>
+								<td>-18</td>
+							</tr>
+							<tr>
+								<td>60</td>
+								<td>47</td>
+								<td>1</td>
+								<td>13</td>
+								<td>-18</td>
+								<td>23</td>
+							</tr>
+							<tr>
+								<td>47</td>
+								<td>13</td>
+								<td>3</td>
+								<td>8</td>
+								<td>-5</td>
+								<td>-18</td>
+							</tr>
+							<tr>
+								<td>13</td>
+								<td>8</td>
+								<td>1</td>
+								<td>5</td>
+								<td>-3</td>
+								<td>-5</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>5</td>
+								<td>1</td>
+								<td>3</td>
+								<td>2</td>
+								<td>-3</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>3</td>
+								<td>1</td>
+								<td>2</td>
+								<td>-1</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>2</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>-1</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>1</td>
+								<td>2</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Verschlüsselung</h3>
+						Formel: <pre class="fla fragment">cryptedChar = m<sup>e</sup> mod N</pre>
+						<span class="fla fragment">Verwendet wird allerdings nicht unser e und N, sondern das e und N des Kommunikationspartners<br>
+						Er hat ebenfalls einen öffentlichen und einen privaten Schlüssel.</span>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Entschlüsselung</h3>
+						Formel: <pre class="fla fragment">decryptedText = cryptedText<sup>d</sup> mod N</pre>
+						<span class="fla fragment">Hier verwenden wir unseren privaten Schlüssel</span>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Ablauf</h2>
+					</section>
+					<section>
+						<h2>Ablauf</h2>
+						Alice möchte eine Nachricht an Bob senden
+						<table>
+							<tr>
+								<td>Alice</td>
+								<td>Bob</td>
+							</tr>
+							<tr>
+								<td>Nachricht m=4</td>
+								<td>
+									<ol>
+										<li>Generierung der Schlüssel Schlüssel</li>
+										<li>Öffentlichen Schlüssel an Alice senden</li>
+									</ol>
+								</td>
+							</tr>
+							<tr>
+								<td>Nachricht für Bob verschlüsseln c=20</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Nachricht an Bob senden</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>Nachricht entschlüsseln =&gt; x=4</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+				<section>
+					<h2>Pro/Contra RSA</h2>
+					Pro:
+					<ul>
+						<li>Für Oskar ist eine Entschlüsselung nahezu unmöglich, weil er mit dem öffentlichen Schlüssel nicht auf den Privaten rückschließen kann</li>
+						<li>Einfach zu Implementieren</li>
+					</ul>
+					
+					Contra:
+					<ul>
+						<li>Schlüssel sind sehr lang (p/q jeweils 512 Bit (mindestens))</li>
+						<li>es gibt inzwischen bessere Verfahren(z.B. ECC)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Anwendungsgebiete</h2>
+					<ul>
+						<li>Übertragungs-Protokolle: IPsec, TLS, SSH, WASTE</li>
+						<li>E-Mail-Verschlüsselung: OpenPGP, S/MIME</li>
+						<li>RFID Chip auf dem deutschen Reisepass</li>
+						<li>uvm...</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Und zu guter letzt gibt's noch</h2>
+					<h1>Übungsaufgaben!</h1>
+					<h1>👍</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+
+				controls: true,
+				controlsLayout: 'bottom-right',
+				progress: true,
+				slideNumber: true,
+				fragmentInURL: false,
+				center: true,
+
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/menu/menu.js' },
+					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
+				],
+				menu: {
+					themes: true,
+					themesPath: '../reveal.js/css/theme/'
+				},
+				spotlight: {
+					size: 60,
+					toggleSpotlightOnMouseDown: false,
+					presentingCursor: "pointer",
+					presentingCursorOnlyVisibleWhenSpotlightVisible: false
+				},
+				keyboard: {
+					67: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+					99: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
