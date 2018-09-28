@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Polymorphie</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/vs2015.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section><h1>Polymorphie, Überladen, Überschreiben</h1></section>
+				<section>
+					<section>
+						<h2>Was sind überladene Methoden?</h2>
+						<p>
+							<p>Methoden mit dem selben Namen,</p>
+							<p>die sich in der Parameteranzahl</p>
+							<p>oder in den Parametertyp(en) </p>
+							<p>und in der Implementierung</p>
+							<p>unterscheiden</p>
+						</p>
+
+					</section>
+
+					<section>
+						<pre><code>class A
+{
+    public void Foo()
+    {
+        Console.WriteLine("Hello from Foo!");
+    }
+    public void Foo(string text)
+    {
+        Console.WriteLine($"Hello from Foo with {text}");
+    }
+}</code></pre>
+					</section>
+					<section>
+						<pre><code>class A
+{
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+    public double Add(double a, double b)
+    {
+        return a + b;
+    }
+}</code></pre>
+					</section>
+				</section>
+				<section>
+					<section> <h2>Was ist Überschreiben?</h2>
+						<p>bei geerbten Methoden kann die Implementierung verändert werden, wenn es die Grundklasse erlaubt.</p>
+						<p>In C# werden hierfür die Wörter <b><i>virtual</i></b>, <b><i>abstract</i></b> und <b><i>override</i></b> verwendet</p>
+					</section>
+					<section>
+    					<pre><code>class Base
+{
+    public virtual void Foo()
+    {
+        Console.WriteLine("Hello Base!");
+    }
+}
+class Derived : Base
+{
+    public override void Foo()
+    {
+        Console.WriteLine("Hello Derived!");
+    }
+}</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2> Was ist Polymorphie?</h2>
+						<p>Variablen können zur Laufzeit verschiedene Typen annehmen und ihr Verhalten dementsprechend verändern.</p>
+
+					</section>
+					<section>
+						<pre><code>abstract class Base
+{
+    public abstract void Foo();
+}
+class DerivedA : Base
+{
+    public override void  Foo()
+    {
+        Console.WriteLine("Hello A!");
+    }
+}
+class DerivedB: Base
+{
+    public override void Foo()
+    {
+        Console.WriteLine("Hello B!");
+    }
+}</code></pre>
+				</section>
+
+				<section><h2>Welche Ausgabe hat folgendes Programm?</h2>
+					<pre><code>static void Main(string[] args)
+{
+    Base val = new DerivedA();
+    val.Foo();
+    val = new DerivedB();
+    val.Foo();
+    Console.ReadLine();
+}</code></pre>
+					<pre class="fragment"><code>Hello A!
+Hello B!</code></pre>
+					</section>
+				</section>
+				<section>
+					<h1>Danke für eure Aufmerksamkeit!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+
+				// controlsLayout: 'bottom-right',
+				progress: true,
+				controls: false,
+				slideNumber: false,
+				center: true,
+
+
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// { src: '../reveal.js/plugin/menu/menu.js' },
+					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
+				],
+				menu: {
+					themes: true,
+					themesPath: '../reveal.js/css/theme/'
+				},
+				spotlight: {
+					size: 60,
+					toggleSpotlightOnMouseDown: false,
+					presentingCursor: "pointer",
+					presentingCursorOnlyVisibleWhenSpotlightVisible: false
+				},
+				keyboard: {
+					67: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+					99: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

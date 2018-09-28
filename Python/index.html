@@ -1,0 +1,274 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Python</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/user/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/vs2015.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Python</h1>
+					<img src="Python-logo.png" class="plain nobg" width="300" height="300">
+				</section>
+				<section>
+					<section>
+						<h2>Operatoren</h2>
+					</section>
+					<section>
+						<h3>Arithmetische Operatoren</h3>
+						<ul class="grid-two fragment">
+							<li>+</li>
+							<li>-</li>
+							<li>*</li>
+							<li>/</li>
+							<li>%</li>
+							<li>**</li>
+							<li>=</li>
+							<li>+=</li>
+							<li>-=</li>
+							<li>*=</li>
+							<li>/=</li>
+							<li>%=</li>
+							<li>**=</li>
+						</ul>&#8203;
+					</section>
+					<section>
+						<h3>Vergleichsoperatoren</h3>
+						<ul class="grid-two fragment">
+							<li>==</li>
+							<li><</li>
+							<li>></li>
+							<li>!=</li>
+							<li><=</li>
+							<li>>=</li>
+						</ul>&#8203;
+					</section>
+					<section>
+						<h3>Boolesche Operatoren</h3>
+						<ul class="grid-two fragment">
+							<li>and</li>
+							<li>not</li>
+							<li>or</li>
+						</ul>&#8203;
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Typen</h2>
+					</section>
+					<section>
+						<h3>Standardtypen</h3>
+						<ul class="grid-two fragment">
+							<li>bool</li>
+							<li>int (long)</li>
+							<li>float</li>
+							<li>complex</li>
+							<li>string</li>
+							<li>list []</li>
+							<li>touple ()</li>
+							<li>dict {}</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Casts</h3>
+						<ul class="grid-two fragment">
+							<li>bool()</li>
+							<li>int()</li>
+							<li>float()</li>
+							<li>complex()</li>
+							<li>str()</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Index</h3>
+						<p class="fragment">[Start:Ende:Schrittweite]</p>
+						<pre class="fragment"><code class="python">s = 'Hello World!'
+
+s[0]
+s[1:5]
+s[0:7:2]
+s[::-1]
+s[-1]</code></pre>
+						<pre class="fragment"><code class="bash">H
+ello
+HloW
+!dlroW olleH
+!</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Kontrollstrukturen</h2>
+					</section>
+					<section>
+						<h3>Wenn ... dann ...</h3>
+						<pre class="fragment"><code class="python">if condition:
+	do...
+elif otherCondition:
+	do...
+else:
+	do...</code></pre>
+					</section>
+					<section>
+						<h3>Solange ...</h3>
+						<pre class="fragment"><code class="python">while condition:
+	do...</code></pre>
+					</section>
+					<section>
+						<h3>Für ...</h3>
+						<pre class="fla fragment"><code class="python">for i in range(1, 10):
+	do...</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Funktionen</h2>
+					</section>
+					<section>
+						<h3>Allgemein</h3>
+						<pre class="fragment"><code class="python">def foo():
+	pass
+foo()</code></pre>
+					</section>
+					<section>
+						<h3>Parameter</h3>
+						<pre class="fragment"><code class="python">def bar(param1, param2=2, param3=3):
+	return (param1 + param2) * param3
+x = bar(5, param3=5)</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Klassen</h2>
+					</section>
+					<section>
+						<h3>Allgemein</h3>
+						<pre class="fragment"><code class="python">class Foo:
+	pass
+x = Foo()</code></pre>
+					</section>
+					<section>
+						<h3>Methoden / Eigenschaften</h3>
+						<pre class="fragment"><code class="python">class Car:
+    _batteryCapacity = 50
+    _SoC = 50
+
+    def charge(self, power, time):
+        self._SoC = self._SoC + (power * time)
+    def drive(self):
+        self._SoC /= 10
+    @staticmethod
+    def setBatteryCapacity(val):
+        Car._batteryCapacity = val
+
+Car.setBatteryCapacity(60)
+tesla = Car()
+tesla.drive()
+tesla.charge(120, 0.5)</code></pre>
+					</section>
+					<section>
+						<h3>Konstruktor / Destruktor</h3>
+						<pre class="fragment"><code class="python">class Bar:
+	someVar = 0
+
+	def __init__(self, someVar):
+		self.someVar = someVar
+
+	def __del__(self):
+		self.someVar = 0
+
+x = Bar(5)
+del(x)</code></pre>
+					</section>
+					<section>
+						<h3>Vererbung</h3>
+						<pre class="fragment"><code class="python">class BaseA:
+	someVar = 0
+	def __init__(self, someVar):
+		super().__init__()
+		self.someVar = someVar
+
+class BaseB:
+	pass
+
+class Child(BaseA, BaseB):
+	def __init__(self, someVar):
+		super().__init__(someVar)
+
+x = Child(5)</code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Danke für die Aufmerksamkeit</h2>
+					<h1>Fragen?🤔</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+
+				controls: true,
+				controlsLayout: 'bottom-right',
+				progress: true,
+				slideNumber: true,
+				fragmentInURL: false,
+				center: true,
+
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/menu/menu.js' },
+					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
+				],
+				menu: {
+					themes: true,
+					themesPath: '../reveal.js/css/theme/'
+				},
+				spotlight: {
+					size: 60,
+					toggleSpotlightOnMouseDown: false,
+					presentingCursor: "pointer",
+					presentingCursorOnlyVisibleWhenSpotlightVisible: false
+				},
+				keyboard: {
+					67: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+					99: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
