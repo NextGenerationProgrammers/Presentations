@@ -64,7 +64,7 @@
 						<h3>Public Key</h3>
 						<ol>
 							<li>3 Primzahlen wähen (p, q, e)</li>
-							<li>N berechnen ( (p-1)*(q-1) )</li>
+							<li>N berechnen (p*q)</li>
 							<li>Public Key: (e, N)</li>
 						</ol>
 					</section>
@@ -72,7 +72,7 @@
 					<section>
 						<h3>Private Key</h3>
 						<ol>
-							<li>&phi;<sub>(N)</sub> berechnen</li>
+							<li>&phi;<sub>(N)</sub> berechnen ( (p-1)*(q-1) )</li>
 							<li>d berechnen</li>
 							<li>Private Key: (d, N)</li>
 						</ol>
