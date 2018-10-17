@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>RSA</title>
+		<title>Unit Testing</title>
 
 		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../reveal.js/css/theme/league.css" id="theme">
@@ -33,26 +33,57 @@
 						<h1>Einführng</h1>
 					</section>
 					<section>
-						<h2>Ziel</h2>
+						<h2>Ziele</h2>
 						<ul class="grid-two fragment">
-							<li></li>
+							<li>Code-Qualität verbessern</li>
+						</ul>
+					</section>
+					<section>
+						<h1>TDD</h1>
+						<h2>Test Driven Development</h2>
+						<ul>
+							<li>Zuerst Tests schreiben, dann Code</li>
+							<li>Alle Tests müssen am Anfang fehlschlagen</li>
+							<li>Dann wird Code geschrieben, bis der Test erfolgreich abläuft</li>
+							<li>Zum Schluss wird entweder der Code verbessert, oder zur nächsten Unit weitergegangen</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Einfaches Beispiel</h1>
+							<pre class="fragment"><code class="c-sharp">[Test]
+public void IsValidExtension() 
+{
+	bool valid = File.IsValidExtension("myFile.ml");
+	Assert.IsTrue(valid);
+}</code></pre>
+
+					</section>
+					<section>
+						<h1>Assert-Methoden</h1>
+						<ul>
+							<li>IsTrue</li>
+							<li>IsFalse</li>
+							<li>Equal</li>
+							<li>NotEqual</li>
 						</ul>
 					</section>
 				</section>
 				<section>
 					<section>
 						<h1>Stubs / Mocks / Fakes</h1>
+						<p>Vollständig isoliertes testen is so nicht möglich! Darum brauchen wir diese 3 Konstrukte</p>
 					</section>
 					<section>
 						<h2>Stubs</h2>
 						<ul>
-							
+							<li>Programmcode, der anstelle eines anderen Programmcodes steht</li>
+							<li>Code der ersetzt wird wurde noch nicht entwickelt</li>
 						</ul>
 					</section>
 					<section>
 						<h2>Mocks</h2>
 						<ul>
-							
+							<li>Platzhalter für echte Objekte</li>
 						</ul>
 					</section>
 					<section>
@@ -77,7 +108,7 @@
 				slideNumber: true,
 				fragmentInURL: false,
 				center: true,
-
+				
 				dependencies: [
 					{ src: '../reveal.js/plugin/markdown/marked.js' },
 					{ src: '../reveal.js/plugin/markdown/markdown.js' },
