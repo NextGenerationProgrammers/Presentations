@@ -1,0 +1,12 @@
+.reveal section .nobg {
+    background: rgba(0,0,0,0);
+}
+
+.reveal section ul.grid-two{
+    -moz-column-count: 2; /* For FireFox */
+    -moz-column-gap: 120px;
+    -webkit-column-count: 2; /* For Safari/Chrome */
+    -webkit-column-gap: 120px;
+    column-count: 2; /* For when the standard gets fully supported */
+    column-gap: 120px;
+}
