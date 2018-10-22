@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/user/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/vs2015.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h3>Hacker</h3>
+						<br>
+						<p>Was k&oumlnnen sie und wie kann man sich dagegen sch&uumltzen</p>
+					</section>
+				</section>
+				
+				<section id = "Spoofing">				
+					<h3>DNS-Spoofing</h3>
+					<section>
+						<p>
+							Spoofing = <br>
+							Manipulation, Verschleierung oder Vort&aumluschung
+						</p>
+					</section>
+					
+					<section>
+						<h5>DNS-Server</h5>
+						<br>
+						<p>
+							<span class = "fragment">DNS: Domain Name Server</span><br><br>
+							<span class = "fragment">Verteilt IP-Adressen an Hosts</span>
+						</p>
+					</section>
+					
+					<section>
+						<h5>Ziel:</h5>
+						<br>
+						<p>
+							Datenverker unbemerkt auf Computer lenken (Phishing, Pharming)							
+					</section>
+					
+					<section>
+						<div style = "width: 60%; padding-top: 30%; background-image: url('spoofing.png'); background-size: contain;margin: auto;"></div>
+					</section>
+					
+					<section>
+						<h5>Schutz</h5>
+						<p>
+							<ul>
+								<li>Snort</li>
+								<li>XArp</li>
+								<li>ArpON</li>
+								<li>ArpAlert</li>
+							</ul>
+						</p>
+					</section>
+				
+				</section>
+				
+				<section id = "Reaver">
+					<h3>Reaver</h3>
+					<section>
+						<p>Zutritt zu Netzwerken, die mit WPA-Passw&oumlrtern gesch&uumltzt sind</p>
+					</section>
+					
+					<section>
+						<p>
+							Normal:<br>
+							Brute-Force des Schl&uumlssels <br><br>
+							<span class = "fragment">Stattdessen:<br>
+							Brute-Force des WPS-Pins</span>
+						</p>
+					</section>
+					
+					<section>
+						<p>
+							WPS:<br>
+							<span class = "fragment">WiFi Protected Setup<br></span><br>
+							<span class = "fragment">Hinzuf&uumlgen von Teilnehmern zu bestehenden Netzwerken vereinfachen<br></span>
+						</p>
+					</section>
+					
+					<section>
+						<p>
+							WPS-Pin:<br>
+							Aufteilung in 4 und 3 Stellen zur &Uumlberpr&uumlfung<br>
+							<span class = "fragment">Maximal: 10h<br>
+							Durchschnitt: 4h</span>
+						</p>
+					</section>
+					
+					<section>
+						<h5>Schutz</h5>
+						<p>
+							<ul>
+								<li>Zugang ohne WPS</li>
+								<li>WPS selber deaktivieren</li>
+								<li>max. Anzahl an falschen Pins festlegen</li>
+							</ul>
+						</p>
+					</section>
+				
+				</section>
+				
+				<section id = "Injection">
+					<h3>SQL-Injection</h3>
+					
+					<section>
+						<h5>Ziel:</h5>
+						<p>
+							Einschleusen eigener SQL-Befehle auf die Datenbank der Anwendung
+						</p>
+					</section>
+					
+					<section>
+						<h5>Grundbefehl</h5>
+						<p>
+							<span style = "color: #8cff7f;">SELECT</span> id<br>
+							<span style = "color: #8cff7f;">FROM</span> user<br>
+							<span style = "color: #8cff7f;">WHERE</span> name = 'Jonas';
+						</p>
+					</section>
+					
+					<section>
+						<h5>Anwendung</h5>
+						<p>
+							http://webserver/cgi-bin/find.cgi?ID=42<br><br>
+							<span class = "fragment">
+								<span style = "color: #8cff7f;">SELECT</span> author, subject, text <br>
+								<span style = "color: #8cff7f;">FROM</span> artikel <br>
+								<span style = "color: #8cff7f;">WHERE</span> ID=42;							
+							</span>
+						</p>
+					</section>
+					
+					<section>
+						<p>
+							http://webserver/cgi-bin/find.cgi?ID=42;<br>
+							<span style = "color: #ff6366;">UPDATE</span>+USER+<br>
+							<span style = "color: #ff6366;">SET</span>+TYPE="admin"+<br>
+							<span style = "color: #ff6366;">WHERE</span>+ID=23
+						</p>
+					</section>
+					
+					<section>
+						<p>
+							<span style = "color: #8cff7f;">SELECT</span> author, subject, text <br>
+							<span style = "color: #8cff7f;">FROM</span> artikel <br>
+							<span style = "color: #8cff7f;">WHERE</span> ID=42;<br><br>
+							<span class = "fragment">
+								<span style = "color: #ff6366;">UPDATE</span> USER <br>
+								<span style = "color: #ff6366;">SET</span> TYPE="admin" <br>
+								<span style = "color: #ff6366;">WHERE</span> ID=23;
+							</span>
+						</p>
+					</section>
+					
+					<section>
+						<h5>Beispiel</h5>
+						<p>
+							http://webserver/cgi-bin/find.cgi?preis=34.50
+							<br><br>
+							<span class = "fragment">
+								http://webserver/cgi-bin/find.cgi?preis=2.50
+							</span>
+						</p>
+					</section>
+					
+					<section>
+						<h5>Erhalten von Informationen</h5>
+						<p>
+							http://webserver/cgi-bin/find.cgi?ID=42<br>+UNION+SELECT+login,+password,+'x'+FROM+user<br>
+							<br>
+							<span class = "fragment">
+								<span style = "color: #8cff7f;">SELECT </span>author, subject, text<br>
+								<span style = "color: #8cff7f;">FROM </span>artikel<br>
+								<span style = "color: #8cff7f;">WHERE </span>ID=42 <br><br>
+							</span>
+							<span class = "fragment">
+								<span style = "color: #ff6366;">UNION SELECT </span>login, password, 'x' <br>
+								<span style = "color: #ff6366;">FROM </span>user;
+							</span>	
+							
+						</p>
+					</section>
+					
+					<section>
+						<h5>Schutz</h5>
+						<p>
+							<ul>
+								<li>&Uumlberpr&uumlfung der Daten</li>
+								<span class = "fragment"><li>Nutzen von "Prepared Statements"</li></span>
+							</ul>
+						</p>
+					</section>
+					
+					<section>
+						<h5>PHP</h5>
+						<pre><code class="hljs" data-trim contenteditable>
+							<?php
+							$stmt = $dbh->prepare("SELECT user, password FROM tbl_user WHERE (user=:user)");
+							$stmt->bindParam(':user', $user);
+							
+							// eine Zeile abfragen
+							$user = 'Jonas';
+							$stmt->execute();
+							
+							// eine weitere Zeile mit anderen Werten abfragen
+							$user = 'Simon';
+							$stmt->execute();
+							?>
+						</code></pre>
+					</section>
+					
+					<section>
+						<h5>Schutz</h5>
+						<p>
+							<ul>
+								<li>&Uumlberpr&uumlfung der Daten (Postleitzahl)</li>
+								<li>Nutzen von "Prepared Statements"</li>
+								<li>Setzen von Privilegen</li>
+								<span class = "fragment">
+									<li>Nutzen aller M&oumlglichkeiten im Webserver</li>
+								</span>
+							</ul>
+						</p>
+					</section>
+					
+					<section>
+					<h5>Python</h5><br>
+						<pre><code class="hljs" data-trim contenteditable>
+							db.engine.execute("SELECT * FROM table")
+						</code></pre>
+						<br>
+						<span class = "fragment">
+							<pre><code class="hljs" data-trim contenteditable>
+								session.query(Order).get(order_id)
+								session.query(Order).filter(Order.status == 'active'
+							</code></pre>
+						</span>
+					</section>
+					
+					<section>
+					<h5>PHP</h5><br>
+						<pre><code class="hljs" data-trim contenteditable>
+							$dbh->exec("INSERT INTO REGISTRY (name, value)
+							VALUES (".$dbh->quote($name,PDO::PARAM_STR).", "
+								.$dbh->quote($value,PDO::PARAM_INT).")");
+						</code></pre>
+						<br>
+						<span class = "fragment">
+							<pre><code class="hljs" data-trim contenteditable>
+								$stmt = $dbh->prepare("INSERT INTO REGISTRY 
+									(name, value) VALUES (:name, :value)");
+								$stmt->bindParam(':name', $name);
+								$stmt->bindParam(':value', $value);
+							</code></pre>
+						</span>
+					</section>
+					
+				</section>
+				
+				<section>
+					<h1>Fragen?🤔</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+
+				controls: true,
+				controlsLayout: 'bottom-right',
+				progress: true,
+				slideNumber: true,
+				fragmentInURL: false,
+				center: true,
+
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/menu/menu.js' },
+					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
+				],
+				menu: {
+					themes: true,
+					themesPath: '../reveal.js/css/theme/'
+				},
+				spotlight: {
+					size: 60,
+					toggleSpotlightOnMouseDown: false,
+					presentingCursor: "pointer",
+					presentingCursorOnlyVisibleWhenSpotlightVisible: false
+				},
+				keyboard: {
+					67: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+					99: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
