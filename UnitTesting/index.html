@@ -72,6 +72,7 @@
 							<li>Integrationstest -&gt; Ergebnis zusammenwirkener Funktionen</li>
 							<li>Systemtest -&gt; Das ganze System</li>
 						</ul>
+						<aside class="notes">Abhängig vom Testverfahren</aside>
 					</section>
 					<section>
 						<h2>Wer testet?</h2>
@@ -92,7 +93,7 @@
 					</section>
 					<section>
 						<h2>Einfaches Beispiel für Unit Tests</h2>
-<p>Businesslogik</p>
+<p>Produktivcode</p>
 <pre class="fragment"><code class="c-sharp">public bool IsValidExtension(string filename) 
 {
   string extension = filename.Substring(filename.LastIndexOf("."));
@@ -128,6 +129,24 @@ public void IsValidExtension_ReturnsFalse()
 }</code></pre>
 					</section>
 					<section>
+						<h2>Arrange - Act - Assert</h2>
+						<p>Grundstruktur jedes Tests</p>
+<pre class="fragment"><code class="c-sharp">[Test]
+public void TestMethod1()
+{
+    // Arrange
+    int a = 5;
+    int b = 7;
+    int expected = 5;
+
+    // Act
+    var actual = getMin(a, b);
+
+    // Assert
+    Assert.AreEqual(expected, actual);
+}</code></pre>
+					</section>
+					<section>
 						<h2>Wie viele Tests brauche ich?</h2>
 						<ul>
 							<li>1 Testfall pro Verhalten einer Funktion (Auch Sonderfälle, Randfälle, Fehlerfälle)</li>
@@ -143,15 +162,31 @@ public void IsValidExtension_ReturnsFalse()
 				</section>
 				<section>
 					<section>
-						<h2>Stubs / Mocks</h2>
-						<p>Vollständig isoliertes testen ist nicht ohne Weiteres möglich! Darum brauchen wir diese Konstrukte</p>
+						<h1>Fakes</h1>
+						<p>Vollständig isoliertes testen ist nicht ohne Weiteres möglich! Darum gibt es:</p>
+						<div class="fragment">
+							<ul>
+								<li>Stubs</li>
+								<li>Mocks</li>
+							</ul><br>
+							<img src="img/StubOrMock.svg" alt="Unterschied Stub/Mock">
+						</div>
+						<aside class="notes">Manuell oder durch Framework</aside>
 					</section>
 					<section>
-						<h3>Stubs</h3>
+						<h2>Ziel von Fakes</h2>
+						<ul>
+							<li>Externe Abhängigkeiten auflösen</li>
+							<li>Vollständig isoliertes Testen ermöglichen</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Stub</h3>
 						<ul>
 							<li>Programmcode, der anstelle eines anderen Programmcodes steht</li>
-							<li>Code der ersetzt wird wurde noch nicht entwickelt</li>
+							<li>Code der ersetzt wird wurde noch nicht entwickelt oder funktioniert noch nicht</li>
 						</ul>
+						<aside class="notes">Zu testende Methode benötigt diese andere Funktion aber</aside>
 					</section>
 					<section>
 						<h4>Ersetzung durchführen</h4>
@@ -159,22 +194,65 @@ public void IsValidExtension_ReturnsFalse()
 						<img src="img/stub_2.png" alt="stub 2" style="width: 65%; background-color: white" class="fla fragment" />
 					</section>
 					<section>
-						<h3>Mocks</h3>
+						<h3>Mock</h3>
 						<ul>
-							<li>Platzhalter für echte Objekte</li>
-							<li>Platzhalter für echte Objekte</li>
+							<li>Nachgeahmtes Objekt im System</li>
+							<li>Verifiziert, ob das zu testende Objekt mit dem Nachgeahmten korrekt kommuniziert</li>
 						</ul>
 					</section>
 					<section>
-						<h3>Fakes</h3>
-						<ul>
-							
-						</ul>
+						<h4>Beispiel</h4>
+<pre><code class="c-sharp">class ErrorLog
+{
+  public string LastError;
+  
+  public void LogError(string message) 
+  {
+    LastError=message;
+  }
+}
+
+[Test]
+public void TestLogError()
+{
+  ErrorLog log = new ErrorLog();
+  FileSystemMaster master = new FileSystemMaster(log);
+  
+  string s = master.openFile(@"C:\tmp\test.txt");
+  
+  Assert.AreEqual("Datei nicht gefunden", log.LastError);
+}
+</code></pre>
+<aside class="notes">AAA ansprechen</aside>
+					</section>
+					<section>
+						<h3>Vergleich</h3>
+						<table>
+							<tr>
+								<th></th>
+								<th>Stub</th>
+								<th>Mock</th>
+							</tr>
+							<tr>
+								<td>Fällt durch Tests</td>
+								<td class="fragment">&#10060;</td>
+								<td class="fragment">&#10004;</td>
+							</tr>
+							<tr>
+								<td>Prüft, ob Test fehlschlägt</td>
+								<td class="fragment">&#10060;</td>
+								<td class="fragment">&#10004;</td>
+							</tr>
+						</table>
+						<aside class="notes">
+							Stub wird nicht direkt geprüft
+						</aside>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h1>Und jetzt?</h1>
+						<h1>Frameworks und mehr!</h1>
+						<aside class="notes">Zum Abschluss noch praxisrelevate Frameworks</aside>
 					</section>
 					<section>
 						<h2>Unit Test-Frameworks</h2>
@@ -182,7 +260,7 @@ public void IsValidExtension_ReturnsFalse()
 						<p>Oft verallgemeinert mit xUnit weil:</p>
 						<ul>
 							<li>Java - JUnit</li>
-							<li>.NET - NUnit</li>
+							<li>.NET - NUnit, MSTest</li>
 							<li>C++ - CppUnit</li>
 							<li>PHP - PHPUnit</li>
 						</ul>
@@ -192,7 +270,7 @@ public void IsValidExtension_ReturnsFalse()
 						<p>Nicht (immer) im Test-Framework enthalten</p>
 						<ul>
 							<li>Java - Mockito</li>
-							<li>.NET - Moq</li>
+							<li>.NET - Moq, Rhino Mocks</li>
 							<li>C++ - Google C++ Mocking Framework</li>
 						</ul>
 					</section>
@@ -213,6 +291,10 @@ public void IsValidExtension_ReturnsFalse()
 							<li>The Art of Unit Testing (mitp Verlag)</li>
 						</ul>
 					</section>
+				</section>
+				<section>
+					<h1>PRAXIS!</h1>
+					<p>In der Theorie sind <strong>Theorie und Praxis</strong> gleich.<br>In der Praxis leider <strong>völlig verschieden!</strong></p>
 				</section>
 			</div>
 		</div>
