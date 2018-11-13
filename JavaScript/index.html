@@ -39,7 +39,7 @@
 							<li>-</li>
 							<li>*</li>
 							<li>/</li>
-							<li>%</li>n 
+							<li>%</li>n
 							<li>++</li>
 							<li>--</li>
 							<li>=</li>
@@ -71,7 +71,7 @@
 							<li>||</li>
 							<li>!</li>
 						</ul>&#8203;
-					</section>					
+					</section>
 					<section>
 						<h3>Bitwise  Operatoren</h3>
 						<ul class="grid-two fragment">
@@ -90,7 +90,7 @@
 					</section>
 					<section>
 						<h3>String</h3>
-						<pre class="fla fragment"><code class="python">var String = "String";</code></pre>
+						<pre class="fla fragment"><code class="js">var String = "String";</code></pre>
 						<p>Funktionen</p>
 						<ul class="grid-one fragment">
 							<li>.slice(Number, Number)</li>
@@ -102,7 +102,7 @@
 					</section>
 					<section>
 						<h3>Number</h3>
-						<pre class="fla fragment"><code class="python">var Number = 125;</code></pre>
+						<pre class="fla fragment"><code class="js">var Number = 125;</code></pre>
 						<p>Funktionen</p>
 						<ul class="grid-one fragment">
 							<li>.isFinite(Number)</li>
@@ -115,9 +115,8 @@
 					</section>
 					<section>
 						<h3>Boolean</h3>
-						<pre class="fla fragment"><code class="python">Boolean(10<9);
-10>9;
-						</code></pre>
+						<pre class="fla fragment"><code class="js">Boolean(10<9);
+10>9;</code></pre>
 						<p>Funktionen</p>
 						<ul class="grid-one fragment">
 							<li>prototype(For Boolean Funtion)</li>
@@ -127,7 +126,7 @@
 					</section>
 					<section>
 						<h3>Array</h3>
-						<pre class="fla fragment"><code class="python">var Array = ["Test" , "Test2", "Test3"];</code></pre>
+						<pre class="fla fragment"><code class="js">var Array = ["Test" , "Test2", "Test3"];</code></pre>
 						<p>Funktionen</p>
 						<ul class="grid-one fragment">
 							<li>.find()</li>
@@ -139,7 +138,7 @@
 					</section>
 					<section>
 						<h3>Math</h3>
-						<pre class="fla fragment"><code class="python">var String = "String";</code></pre>
+						<pre class="fla fragment"><code class="js">var String = "String";</code></pre>
 						<p>Funktionen</p>
 						<ul class="grid-one fragment">
 							<li>.round(x)</li>
@@ -150,13 +149,13 @@
 					</section>
 					<section>
 						<h3>Object´s</h3>
-						<pre class="fla fragment"><code class="python">var Object = {"name":"Max" , "age":31 , "Stadt":"München"};</code></pre>
+						<pre class="fla fragment"><code class="js">var Object = {"name":"Max" , "age":31 , "Stadt":"München"};</code></pre>
 						<p>Funktionen</p>
 						<ul class="grid-one fragment">
 							<li>.property</li>
 							<li>[expression]</li>
 						</ul>
-					<pre class="fla fragment"><code class="python">var Object = {"name":"Max" ,
+					<pre class="fla fragment"><code class="js">var Object = {"name":"Max" ,
 "age":31 ,
 "Stadt":"München",
 fullName : function()  {
@@ -165,7 +164,7 @@ fullName : function()  {
 					</section>
 					<section>
 						<h3>Date</h3>
-						<pre class="fla fragment"><code class="python">var d = new Date();
+						<pre class="fla fragment"><code class="js">var d = new Date();
 var d = new Date(milliseconds);
 var d = new Date(dateString);
 var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);</code></pre>
@@ -183,49 +182,39 @@ var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);</code
 					</section>
 					<section>
 						<h3>Conditions</h3>
-						<pre class="fragment"><code class="python">
-if (condition1){
+						<pre class="fragment"><code class="js">if (condition1) {
 	do...
-	}
-else if (Condition2)
-{
+} else if (Condition2) {
 	do...
-}
-else{
+} else {
 	do...
-{
-	</code></pre>
+}</code></pre>
 					</section>
 					<section>
 						<h3>While Loop</h3>
-						<pre class="fragment"><code class="python">while ( Condition )
-{
+						<pre class="fragment"><code class="js">while (Condition) {
 	do.. /* break, continue*/
-}
-						</code></pre>
+}</code></pre>
 					</section>
 					<section>
 						<h3>For Loop</h3>
-						<pre class="fla fragment"><code class="python">for (i = 0; i < 10;i++){
-i++
-}
-	
-	</code></pre>
-					</section>					
+						<pre class="fla fragment"><code class="js">for (i = 0; i < 10;i++) {
+	i++
+}</code></pre>
+					</section>
 					<section>
 						<h3>Switch Case</h3>
-						<pre class="fla fragment"><code class="python">switch(expression){
-case ...:
-	do..
-	break;
-case ...:
-	do..
-	break;
-case ...:
-	do..
-	break;
-}
-	</code></pre>
+						<pre class="fla fragment"><code class="js">switch (expression) {
+	case ...:
+		do..
+		break;
+	case ...:
+		do..
+		break;
+	case ...:
+		do..
+		break;
+}</code></pre>
 					</section>
 				</section>
 				<section>
@@ -234,18 +223,19 @@ case ...:
 					</section>
 					<section>
 						<h3>Aufbau</h3>
-						<pre class="fragment"><code class="python">function fun(){
-var a
-while(a != "Test")
-	a = "Test"; -> Variable in der Funktionen						
-	if ( var = a == "Test" )
-	{
-		return a;
-	}					
+						<pre class="fragment"><code class="js">function fun() {
+	var a
+	while(a != "Test")
+		a = "Test"; //-> Variable in der Funktionen
+		if (a == "Test")
+		{
+			return a;
+		}
+	}
 }</code></pre>
 					</section>
 					<section>
-						<h3>Aufruf</h3><pre class="fragment"><code class="python">var text = a();</code></pre>
+						<h3>Aufruf</h3><pre class="fragment"><code class="js">var text = a();</code></pre>
 					</section>
 				</section>
 				<section>
@@ -254,8 +244,6 @@ while(a != "Test")
 					</section>
 					<p>
 				</section>
-				</section>
-
 			</div>
 		</div>
 
