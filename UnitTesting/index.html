@@ -7,7 +7,7 @@
 		<title>Unit Testing</title>
 
 		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../reveal.js/css/theme/league.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/css/theme/night.css" id="theme">
 		<link rel="stylesheet" href="../reveal.js/user/custom.css">
 
 		<!-- Theme used for syntax highlighting of code -->
@@ -30,73 +30,271 @@
 				</section>
 				<section>
 					<section>
-						<h1>Einführng</h1>
+						<h1>Einführung</h1>
 					</section>
 					<section>
-						<h2>Ziele</h2>
-						<ul class="grid-two fragment">
-							<li>Code-Qualität verbessern</li>
+						<h2>Was ich euch zeige</h2>
+						<ul>
+							<li>Warum wird getestet?</li>
+							<li>Was wird getestet?</li>
+							<li>Wie wird getestet?</li>
+							<li>Wer testet?</li>
 						</ul>
 					</section>
 					<section>
-						<h1>TDD</h1>
-						<h2>Test Driven Development</h2>
+						<h2>Warum?</h2>
+						<ul>
+							<li>Funktionsfähigen Code schreiben</li>
+							<li>Code-Qualität verbessern</li>
+						</ul>
+						<p>=&gt; Daraus ergeben sich folgende Möglichkeiten:</p>
+						<ul class="fragment">
+							<li>Code Reviews</li>
+							<li><strong>Testen (händisch/automatisch)</strong></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Testverfahren</h2>
+						<ul class="grid-two">
+							<li>Komponententest</li>
+							<li>Integrationstest</li>
+							<li>Systemtest</li>
+							<li>Abnahmetest</li>
+							<li>Lasttest</li>
+							<li>Smoketest</li>
+							<li>Exploratives Testen</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Was wird getestet?</h2>
+						<ul>
+							<li>Unittest -&gt; Komponente -&gt; <strong>eine einzelne</strong> Funktion/Methode</li>
+							<li>Integrationstest -&gt; Ergebnis zusammenwirkener Funktionen</li>
+							<li>Systemtest -&gt; Das ganze System</li>
+						</ul>
+						<aside class="notes">Abhängig vom Testverfahren</aside>
+					</section>
+					<section>
+						<h2>Wer testet?</h2>
+						<ul>
+							<li>Abhängig vom Testverfahren</li>
+							<li>Entwickler / Fachbereich / Unabhängige Person</li>
+						</ul>
+					</section>
+					<section>
+						<h2>TDD</h2>
+						<p>Test Driven Development - Extremfall</p>
 						<ul>
 							<li>Zuerst Tests schreiben, dann Code</li>
-							<li>Alle Tests müssen am Anfang fehlschlagen</li>
-							<li>Dann wird Code geschrieben, bis der Test erfolgreich abläuft</li>
+							<li>Alle Tests <strong>müssen</strong> am Anfang fehlschlagen</li>
+							<li>Dann wird Code geschrieben, bis die Tests erfolgreich ablaufen</li>
 							<li>Zum Schluss wird entweder der Code verbessert, oder zur nächsten Unit weitergegangen</li>
 						</ul>
 					</section>
 					<section>
-						<h1>Einfaches Beispiel</h1>
-							<pre class="fragment"><code class="c-sharp">[Test]
-public void IsValidExtension() 
+						<h2>Einfaches Beispiel für Unit Tests</h2>
+<p>Produktivcode</p>
+<pre class="fragment"><code class="c-sharp">public bool IsValidExtension(string filename) 
 {
-	bool valid = File.IsValidExtension("myFile.ml");
-	Assert.IsTrue(valid);
+  string extension = filename.Substring(filename.LastIndexOf("."));
+  if(extension.ToLower() == "ml") 
+  {
+    return true;
+  }
+  return false;
 }</code></pre>
 
 					</section>
 					<section>
-						<h1>Assert-Methoden</h1>
+						<h2>Tests für diesen Code</h2>
+							<pre class="fragment"><code class="c-sharp">[Test]
+public void IsValidExtension_uppercase_ReturnsTrue() 
+{
+  bool valid = file.IsValidExtension("myFile.ML");
+  Assert.IsTrue(valid);
+}
+
+[Test]
+public void IsValidExtension_lowercase_ReturnsTrue() 
+{
+  bool valid = file.IsValidExtension("myFile.ml");
+  Assert.IsTrue(valid);
+}
+
+[Test]
+public void IsValidExtension_ReturnsFalse() 
+{
+  bool valid = file.IsValidExtension("myFile.ms");
+  Assert.IsFalse(valid);
+}</code></pre>
+					</section>
+					<section>
+						<h2>Arrange - Act - Assert</h2>
+						<p>Grundstruktur jedes Tests</p>
+<pre class="fragment"><code class="c-sharp">[Test]
+public void TestMethod1()
+{
+    // Arrange
+    int a = 5;
+    int b = 7;
+    int expected = 5;
+
+    // Act
+    var actual = getMin(a, b);
+
+    // Assert
+    Assert.AreEqual(expected, actual);
+}</code></pre>
+					</section>
+					<section>
+						<h2>Wie viele Tests brauche ich?</h2>
 						<ul>
-							<li>IsTrue</li>
-							<li>IsFalse</li>
-							<li>Equal</li>
-							<li>NotEqual</li>
+							<li>1 Testfall pro Verhalten einer Funktion (Auch Sonderfälle, Randfälle, Fehlerfälle)</li>
+							<li>1 Testfall pro möglichem Codepfad</li>
+							<li>1 Testfall für jeden bekannten Bug</li>
+							<ul>
+								<li>Hilft beim Reproduzieren der Fehler</li>
+								<li>Testet die Behebung des Fehlers</li>
+								<li>Schützt davor, dass der selbe Bug nicht nochmal kommt</li>
+							</ul>
 						</ul>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h1>Stubs / Mocks / Fakes</h1>
-						<p>Vollständig isoliertes testen is so nicht möglich! Darum brauchen wir diese 3 Konstrukte</p>
+						<h1>Fakes</h1>
+						<p>Vollständig isoliertes testen ist nicht ohne Weiteres möglich! Darum gibt es:</p>
+						<div class="fragment">
+							<ul>
+								<li>Stubs</li>
+								<li>Mocks</li>
+							</ul><br>
+							<img src="img/StubOrMock.svg" alt="Unterschied Stub/Mock">
+						</div>
+						<aside class="notes">Manuell oder durch Framework</aside>
 					</section>
 					<section>
-						<h2>Stubs</h2>
+						<h2>Ziel von Fakes</h2>
+						<ul>
+							<li>Externe Abhängigkeiten auflösen</li>
+							<li>Vollständig isoliertes Testen ermöglichen</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Stub</h3>
 						<ul>
 							<li>Programmcode, der anstelle eines anderen Programmcodes steht</li>
-							<li>Code der ersetzt wird wurde noch nicht entwickelt</li>
+							<li>Code der ersetzt wird wurde noch nicht entwickelt oder funktioniert noch nicht</li>
 						</ul>
+						<aside class="notes">Zu testende Methode benötigt diese andere Funktion aber</aside>
 					</section>
 					<section>
-						<h3>Ersetzung durchführen</h3>
-						<img src="img/stub_1.png" alt="stub 1" style="width: 30%" />
-						<img src="img/stub_2.png" alt="stub 2" style="width: 30%" class="fla fragment" />
+						<h4>Ersetzung durchführen</h4>
+						<img src="img/stub_1.png" alt="stub 1" style="width: 29%; background-color: white" />
+						<img src="img/stub_2.png" alt="stub 2" style="width: 65%; background-color: white" class="fla fragment" />
 					</section>
 					<section>
-						<h2>Mocks</h2>
+						<h3>Mock</h3>
 						<ul>
-							<li>Platzhalter für echte Objekte</li>
+							<li>Nachgeahmtes Objekt im System</li>
+							<li>Verifiziert, ob das zu testende Objekt mit dem Nachgeahmten korrekt kommuniziert</li>
 						</ul>
 					</section>
 					<section>
-						<h2>Fakes</h2>
+						<h4>Beispiel</h4>
+<pre><code class="c-sharp">class ErrorLog
+{
+  public string LastError;
+  
+  public void LogError(string message) 
+  {
+    LastError=message;
+  }
+}
+
+[Test]
+public void TestLogError()
+{
+  ErrorLog log = new ErrorLog();
+  FileSystemMaster master = new FileSystemMaster(log);
+  
+  string s = master.openFile(@"C:\tmp\test.txt");
+  
+  Assert.AreEqual("Datei nicht gefunden", log.LastError);
+}
+</code></pre>
+<aside class="notes">AAA ansprechen</aside>
+					</section>
+					<section>
+						<h3>Vergleich</h3>
+						<table>
+							<tr>
+								<th></th>
+								<th>Stub</th>
+								<th>Mock</th>
+							</tr>
+							<tr>
+								<td>Fällt durch Tests</td>
+								<td class="fragment">&#10060;</td>
+								<td class="fragment">&#10004;</td>
+							</tr>
+							<tr>
+								<td>Prüft, ob Test fehlschlägt</td>
+								<td class="fragment">&#10060;</td>
+								<td class="fragment">&#10004;</td>
+							</tr>
+						</table>
+						<aside class="notes">
+							Stub wird nicht direkt geprüft
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Frameworks und mehr!</h1>
+						<aside class="notes">Zum Abschluss noch praxisrelevate Frameworks</aside>
+					</section>
+					<section>
+						<h2>Unit Test-Frameworks</h2>
+						<p>Für (fast) jede Sprache gibt es ein/mehrere Unit Test-Frameworks</p>
+						<p>Oft verallgemeinert mit xUnit weil:</p>
 						<ul>
-							
+							<li>Java - JUnit</li>
+							<li>.NET - NUnit, MSTest</li>
+							<li>C++ - CppUnit</li>
+							<li>PHP - PHPUnit</li>
 						</ul>
 					</section>
+					<section>
+						<h2>Mocking-Frameworks</h2>
+						<p>Nicht (immer) im Test-Framework enthalten</p>
+						<ul>
+							<li>Java - Mockito</li>
+							<li>.NET - Moq, Rhino Mocks</li>
+							<li>C++ - Google C++ Mocking Framework</li>
+						</ul>
+					</section>
+					<section>
+						<h1>100% Code Coverage?</h1>
+						<ul>
+							<li>Nicht sinnvoll</li>
+							<li>Zeitaufwendig</li>
+							<li>U.u. nicht möglich</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Weitere Informationen</h2>
+						<ul>
+							<li>Anwendungsentwicklerpodcast (Episode 94)</li>
+							<li>The Art of Unit Testing (mitp Verlag)</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h1>PRAXIS!</h1>
+					<p>In der Theorie sind <strong>Theorie und Praxis</strong> gleich.<br>In der Praxis leider <strong>völlig verschieden!</strong></p>
 				</section>
 			</div>
 		</div>
