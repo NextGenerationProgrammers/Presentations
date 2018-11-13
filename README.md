@@ -7,3 +7,5 @@ Presentations about programming and other IT topics
 - Data security
 - Polymorphism
 - Unit Testing
+- Javasript
+- Additive Manufacturing
