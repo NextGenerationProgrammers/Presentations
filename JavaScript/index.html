@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>JavaScript</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/user/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/vs2015.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Java Script</h1>
+				</section>
+				<section>
+					<section>
+						<h2>Operatoren</h2>
+					</section>
+					<section>
+						<h3>Arithmetische Operatoren</h3>
+						<ul class="grid-two fragment">
+							<li>+</li>
+							<li>-</li>
+							<li>*</li>
+							<li>/</li>
+							<li>%</li>n 
+							<li>++</li>
+							<li>--</li>
+							<li>=</li>
+							<li>+=</li>
+							<li>-=</li>
+							<li>*=</li>
+							<li>/=</li>
+							<li>%=</li>
+						</ul>&#8203;
+					</section>
+					<section>
+						<h3>Vergleichsoperatoren</h3>
+						<ul class="grid-two fragment">
+							<li>==</li>
+							<li>===</li>
+							<li>!=</li>
+							<li>!==</li>
+							<li>></li>
+							<li><</li>
+							<li>>=</li>
+							<li><=</li>
+							<li>?</li>
+						</ul>&#8203;
+					</section>
+					<section>
+						<h3>Boolesche Operatoren</h3>
+						<ul class="grid-two fragment">
+							<li>&&</li>
+							<li>||</li>
+							<li>!</li>
+						</ul>&#8203;
+					</section>					
+					<section>
+						<h3>Bitwise  Operatoren</h3>
+						<ul class="grid-two fragment">
+							<li>&</li>
+							<li>|</li>
+							<li>~</li>
+							<li><<</li>
+							<li>>></li>
+							<li>>>></li>
+						</ul>&#8203;
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Typen</h2>
+					</section>
+					<section>
+						<h3>String</h3>
+						<pre class="fla fragment"><code class="python">var String = "String";</code></pre>
+						<p>Funktionen</p>
+						<ul class="grid-one fragment">
+							<li>.slice(Number, Number)</li>
+							<li>.substring(Number, Number)</li>
+							<li>.includes("String")</li>
+							<li>.replace("String")</li>
+							<li>.split('a')</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Number</h3>
+						<pre class="fla fragment"><code class="python">var Number = 125;</code></pre>
+						<p>Funktionen</p>
+						<ul class="grid-one fragment">
+							<li>.isFinite(Number)</li>
+							<li>isSafeInteger()</li>
+							<li>toExponentail()</li>
+							<li>toFixed()</li>
+							<li>toString()</li>
+							<li>valueOf()</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Boolean</h3>
+						<pre class="fla fragment"><code class="python">Boolean(10<9);
+10>9;
+						</code></pre>
+						<p>Funktionen</p>
+						<ul class="grid-one fragment">
+							<li>prototype(For Boolean Funtion)</li>
+							<li>.toString()</li>
+							<li>valueOf()</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Array</h3>
+						<pre class="fla fragment"><code class="python">var Array = ["Test" , "Test2", "Test3"];</code></pre>
+						<p>Funktionen</p>
+						<ul class="grid-one fragment">
+							<li>.find()</li>
+							<li>.filter()</li>
+							<li>.push()</li>
+							<li>.slice()</li>
+							<li>.some()</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Math</h3>
+						<pre class="fla fragment"><code class="python">var String = "String";</code></pre>
+						<p>Funktionen</p>
+						<ul class="grid-one fragment">
+							<li>.round(x)</li>
+							<li>flor(x)</li>
+							<li>ceil(x)</li>
+							<li>sqrt()</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Object´s</h3>
+						<pre class="fla fragment"><code class="python">var Object = {"name":"Max" , "age":31 , "Stadt":"München"};</code></pre>
+						<p>Funktionen</p>
+						<ul class="grid-one fragment">
+							<li>.property</li>
+							<li>[expression]</li>
+						</ul>
+					<pre class="fla fragment"><code class="python">var Object = {"name":"Max" ,
+"age":31 ,
+"Stadt":"München",
+fullName : function()  {
+	return this.firstName + " " + this.lastName;
+};</code></pre>
+					</section>
+					<section>
+						<h3>Date</h3>
+						<pre class="fla fragment"><code class="python">var d = new Date();
+var d = new Date(milliseconds);
+var d = new Date(dateString);
+var d = new Date(year, month, day, hours, minutes, seconds, milliseconds);</code></pre>
+						<p>Funktionen</p>
+						<ul class="grid-one fragment">
+							<li>Get...(); //FullYear, Month,Date,Hours,...</li>
+							<li>Set...(); //FullYear, Month,Date,Time,...</li>
+							<li>Date.now()</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Kontrollstrukturen</h2>
+					</section>
+					<section>
+						<h3>Conditions</h3>
+						<pre class="fragment"><code class="python">
+if (condition1){
+	do...
+	}
+else if (Condition2)
+{
+	do...
+}
+else{
+	do...
+{
+	</code></pre>
+					</section>
+					<section>
+						<h3>While Loop</h3>
+						<pre class="fragment"><code class="python">while ( Condition )
+{
+	do.. /* break, continue*/
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>For Loop</h3>
+						<pre class="fla fragment"><code class="python">for (i = 0; i < 10;i++){
+i++
+}
+	
+	</code></pre>
+					</section>					
+					<section>
+						<h3>Switch Case</h3>
+						<pre class="fla fragment"><code class="python">switch(expression){
+case ...:
+	do..
+	break;
+case ...:
+	do..
+	break;
+case ...:
+	do..
+	break;
+}
+	</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Funktionen</h2>
+					</section>
+					<section>
+						<h3>Aufbau</h3>
+						<pre class="fragment"><code class="python">function fun(){
+var a
+while(a != "Test")
+	a = "Test"; -> Variable in der Funktionen						
+	if ( var = a == "Test" )
+	{
+		return a;
+	}					
+}</code></pre>
+					</section>
+					<section>
+						<h3>Aufruf</h3><pre class="fragment"><code class="python">var text = a();</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2></h2>
+					</section>
+					<p>
+				</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+
+				controls: true,
+				controlsLayout: 'bottom-right',
+				progress: true,
+				slideNumber: true,
+				fragmentInURL: false,
+				center: true,
+
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/menu/menu.js' },
+					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
+				],
+				menu: {
+					themes: true,
+					themesPath: '../reveal.js/css/theme/'
+				},
+				spotlight: {
+					size: 60,
+					toggleSpotlightOnMouseDown: false,
+					presentingCursor: "pointer",
+					presentingCursorOnlyVisibleWhenSpotlightVisible: false
+				},
+				keyboard: {
+					67: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+					99: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

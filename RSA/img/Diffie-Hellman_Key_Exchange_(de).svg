@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="426.5"
+   height="641"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Diffie-Hellman_Key_Exchange.svg">
+  <metadata
+     id="metadata88">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs86" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1858"
+     inkscape:window-height="1177"
+     id="namedview84"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="99.014039"
+     inkscape:cy="217.01631"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     id="g8032">
+    <ellipse
+       cx="45.75"
+       cy="630.25"
+       rx="45"
+       ry="10"
+       id="ellipse4052"
+       style="fill:#796300;stroke:#000000;stroke-width:1.5"
+       d="m 90.75,630.25 c 0,5.52285 -20.147186,10 -45,10 -24.852814,0 -45,-4.47715 -45,-10 0,-5.52285 20.147186,-10 45,-10 24.852814,0 45,4.47715 45,10 z" />
+    <path
+       d="m 0.75,630.25 0,-60 90,0 0,60"
+       id="path7000"
+       style="fill:#796300;stroke:#000000;stroke-width:1.5" />
+    <use
+       transform="translate(0,-60)"
+       id="use7002"
+       xlink:href="#ellipse4052" />
+  </g>
+  <use
+     transform="translate(335,0)"
+     id="use8037"
+     xlink:href="#g8032" />
+  <g
+     id="g8042">
+    <ellipse
+       cx="45.75"
+       cy="520.25"
+       rx="45"
+       ry="10"
+       id="ellipse4294"
+       style="fill:#ff5a00;stroke:#000000;stroke-width:1.5"
+       d="m 90.75,520.25 c 0,5.52285 -20.147186,10 -45,10 -24.852814,0 -45,-4.47715 -45,-10 0,-5.52285 20.147186,-10 45,-10 24.852814,0 45,4.47715 45,10 z" />
+    <path
+       d="m 0.75,520.25 0,-20 90,0 0,20"
+       id="path7008"
+       style="fill:#ff5a00;stroke:#000000;stroke-width:1.5" />
+    <use
+       transform="translate(0,-20)"
+       id="use7010"
+       xlink:href="#ellipse4294" />
+  </g>
+  <g
+     id="g8052">
+    <ellipse
+       cx="380.75"
+       cy="520.25"
+       rx="45"
+       ry="10"
+       id="ellipse4315"
+       style="fill:#5dcac5;stroke:#000000;stroke-width:1.5"
+       d="m 425.75,520.25 c 0,5.52285 -20.14719,10 -45,10 -24.85281,0 -45,-4.47715 -45,-10 0,-5.52285 20.14719,-10 45,-10 24.85281,0 45,4.47715 45,10 z" />
+    <path
+       d="m 335.75,520.25 0,-20 90,0 0,20"
+       id="path7014"
+       style="fill:#5dcac5;stroke:#000000;stroke-width:1.5" />
+    <use
+       transform="translate(0,-20)"
+       id="use7016"
+       xlink:href="#ellipse4315" />
+  </g>
+  <g
+     id="g8066">
+    <g
+       id="g6343">
+      <path
+         d="m 0.75,450.25 0,-60 90,0 0,60"
+         id="path7020"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1.5" />
+      <ellipse
+         cx="45.75"
+         cy="390.25"
+         rx="45"
+         ry="10"
+         id="ellipse7022"
+         style="fill:#ffffff;stroke:#000000;stroke-width:1.5"
+         d="m 90.75,390.25 c 0,5.52285 -20.147186,10 -45,10 -24.852814,0 -45,-4.47715 -45,-10 0,-5.52285 20.147186,-10 45,-10 24.852814,0 45,4.47715 45,10 z" />
+    </g>
+    <g
+       id="g7024">
+      <ellipse
+         cx="45.75"
+         cy="450.25"
+         rx="45"
+         ry="10"
+         id="ellipse4329"
+         style="fill:#93bbff;stroke:#000000;stroke-width:1.5"
+         d="m 90.75,450.25 c 0,5.52285 -20.147186,10 -45,10 -24.852814,0 -45,-4.47715 -45,-10 0,-5.52285 20.147186,-10 45,-10 24.852814,0 45,4.47715 45,10 z" />
+      <path
+         d="m 0.75,450.25 0,-40 90,0 0,40"
+         id="path7027"
+         style="fill:#93bbff;stroke:#000000;stroke-width:1.5" />
+      <use
+         transform="translate(0,-40)"
+         id="use7029"
+         xlink:href="#ellipse4329" />
+    </g>
+  </g>
+  <g
+     id="g8082">
+    <use
+       transform="translate(335,0)"
+       id="use7032"
+       xlink:href="#g6343" />
+    <g
+       id="g7034">
+      <ellipse
+         cx="380.75"
+         cy="450.25"
+         rx="45"
+         ry="10"
+         id="ellipse3980"
+         style="fill:#ffbf61;stroke:#000000;stroke-width:1.5"
+         d="m 425.75,450.25 c 0,5.52285 -20.14719,10 -45,10 -24.85281,0 -45,-4.47715 -45,-10 0,-5.52285 20.14719,-10 45,-10 24.85281,0 45,4.47715 45,10 z" />
+      <path
+         d="m 335.75,450.25 0,-40 90,0 0,40"
+         id="path7037"
+         style="fill:#ffbe60;stroke:#000000;stroke-width:1.5" />
+      <use
+         transform="translate(0,-40)"
+         id="use7039"
+         xlink:href="#ellipse3980" />
+    </g>
+  </g>
+  <use
+     transform="translate(-335,-160)"
+     id="use8089"
+     xlink:href="#g8082" />
+  <use
+     transform="translate(335,-160)"
+     id="use8075"
+     xlink:href="#g8066" />
+  <use
+     transform="translate(0,-340)"
+     id="use8047"
+     xlink:href="#g8042" />
+  <use
+     transform="translate(0,-340)"
+     id="use8057"
+     xlink:href="#g8052" />
+  <g
+     id="g8096">
+    <use
+       transform="translate(0,-340)"
+       id="use7050"
+       xlink:href="#g6343" />
+    <g
+       id="g7052">
+      <use
+         transform="translate(0,20)"
+         id="use7054"
+         xlink:href="#ellipse3879" />
+      <path
+         d="m 0.75,110.25 0,-20 90,0 0,20"
+         id="path7056"
+         style="fill:#ffff00;stroke:#000000;stroke-width:1.5" />
+      <ellipse
+         cx="45.75"
+         cy="90.25"
+         rx="45"
+         ry="10"
+         id="ellipse3879"
+         style="fill:#ffff00;stroke:#000000;stroke-width:1.5"
+         d="m 90.75,90.25 c 0,5.522847 -20.147186,10 -45,10 -24.852814,0 -45,-4.477153 -45,-10 0,-5.522847 20.147186,-10 45,-10 24.852814,0 45,4.477153 45,10 z" />
+    </g>
+  </g>
+  <use
+     transform="translate(335,0)"
+     id="use8103"
+     xlink:href="#g8096" />
+  <g
+     id="g9027">
+    <path
+       d="M 91.5,301 335,379.5"
+       id="path3183"
+       style="stroke:#000000;stroke-width:1.5" />
+    <path
+       d="m 326.375,372.78125 2.40625,4.71875 -4.71875,2.40625 13.65625,0.4687"
+       id="path3185" />
+  </g>
+  <use
+     transform="matrix(-1,0,0,1,427.5,0)"
+     id="use7083"
+     xlink:href="#g9027" />
+  <text
+     x="213.25"
+     y="606.96045"
+     id="text7061"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan47">gemeinsames Geheimnis</tspan></text>
+  <text
+     x="213.25"
+     y="374.48346"
+     id="text7075"
+     xml:space="preserve"
+     style="font-size:18px;text-anchor:middle"><tspan
+       x="213.25"
+       y="374.48346"
+       id="tspan55">(Annahme:</tspan></text>
+  <text
+     x="213.25"
+     y="300.67578"
+     id="text7086"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan62">öffentliche Übertragung</tspan></text>
+  <text
+     x="45.75"
+     y="212.89258"
+     id="text5587"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan65"
+       style="font-size:24px">=</tspan></text>
+  <use
+     transform="translate(335,0)"
+     id="use7090"
+     xlink:href="#text5587"
+     x="0"
+     y="0"
+     width="426.5"
+     height="641" />
+  <text
+     x="213.25"
+     y="175.21582"
+     id="text5541"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan69">geheime Farben</tspan></text>
+  <text
+     x="45.75"
+     y="142.89258"
+     id="text5569"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan72"
+       style="font-size:24px">+</tspan></text>
+  <use
+     transform="translate(335,0)"
+     id="use7098"
+     xlink:href="#text5569"
+     x="0"
+     y="0"
+     width="426.5"
+     height="641" />
+  <text
+     x="213.25"
+     y="85.21582"
+     id="text7103"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan76">gemeinsame Farbe</tspan></text>
+  <text
+     x="45.75"
+     y="24.5625"
+     id="text7107"
+     xml:space="preserve"
+     style="font-size:32px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan79">Alice</tspan></text>
+  <text
+     x="380.75"
+     y="24.5625"
+     id="text7111"
+     xml:space="preserve"
+     style="font-size:32px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan82">Bob</tspan></text>
+  <text
+     x="213.31055"
+     y="392.76413"
+     id="text7075-1"
+     xml:space="preserve"
+     style="font-size:18px;text-anchor:middle"><tspan
+       x="213.31055"
+       y="392.76413"
+       id="tspan55-7">Umkehren des Mischens</tspan></text>
+  <text
+     x="213.43248"
+     y="410.94754"
+     id="text7075-1-9"
+     xml:space="preserve"
+     style="font-size:18px;text-anchor:middle">ist sehr aufwändig)</text>
+  <text
+     x="45.755199"
+     y="554.92957"
+     id="text5587-1"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan65-7"
+       style="font-size:24px">=</tspan></text>
+  <text
+     x="45.755199"
+     y="484.92957"
+     id="text5569-4"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan72-0"
+       style="font-size:24px">+</tspan></text>
+  <use
+     transform="translate(334.99815,342.43478)"
+     id="use7090-9"
+     xlink:href="#text5587"
+     x="0"
+     y="0"
+     width="426.5"
+     height="641" />
+  <use
+     transform="translate(334.99815,342.43478)"
+     id="use7098-4"
+     xlink:href="#text5569"
+     x="0"
+     y="0"
+     width="426.5"
+     height="641" />
+  <text
+     x="213.2493"
+     y="516.71301"
+     id="text5541-8"
+     xml:space="preserve"
+     style="font-size:18px;font-weight:bold;text-anchor:middle"><tspan
+       id="tspan69-8">geheime Farben</tspan></text>
+</svg>

@@ -45,7 +45,7 @@
 								</ul>
 							</li>
 							<li>Beruht auf dem Problem, dass es mathematisch extrem schwierig ist, große Zahlen zu faktorisieren</li>
-							
+
 						</ul>&#8203;
 					</section>
 				</section>
@@ -68,7 +68,7 @@
 							<li>Public Key: (e, N)</li>
 						</ol>
 					</section>
-					
+
 					<section>
 						<h3>Private Key</h3>
 						<ol>
@@ -218,12 +218,39 @@
 						<li>Für Oskar ist eine Entschlüsselung nahezu unmöglich, weil er mit dem öffentlichen Schlüssel nicht auf den Privaten rückschließen kann</li>
 						<li>Einfach zu Implementieren</li>
 					</ul>
-					
+
 					Contra:
 					<ul>
 						<li>Schlüssel sind sehr lang (p/q jeweils 512 Bit (mindestens))</li>
 						<li>es gibt inzwischen bessere Verfahren(z.B. ECC)</li>
 					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Schl&uuml;sselaustausch</h2>
+						<h3 class="fragment">Diffie-Hellman</h3>
+					</section>
+					<section>
+						<h3>Konzept</h3>
+						<img src="img/Diffie-Hellman_Key_Exchange_(de).svg" class="plain nobg" style="height: 75vh">
+					</section>
+					<section>
+						<h3> Mathematische Funktionsweise</h3>
+						<pre class="fla">p = 23
+g = 5 //Primitivwurzel</pre>
+						<pre class="fla fragment">a = 4
+g<sup>a</sup> mod p
+-> A = 5<sup>4</sup> mod 23 = 4</pre>
+						<pre class="fla fragment">b = 3
+g<sup>b</sup> mod p
+-> B = 5<sup>3</sup> mod 23 = 10</pre>
+						<pre class="fla fragment">
+B<sup>a</sup> mod p
+-> s = 10<sup>4</sup> mod 23 = 18</pre>
+						<pre class="fla fragment">
+A<sup>b</sup> mod p
+-> s = 4<sup>3</sup> mod 23 = 18</pre>
+					</section>
 				</section>
 				<section>
 					<h2>Anwendungsgebiete</h2>
