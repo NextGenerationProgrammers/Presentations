@@ -159,6 +159,23 @@ public void TestMethod1()
 							</ul>
 						</ul>
 					</section>
+					<section>
+						<h2>Wie viele Tests werden hier benötigt?</h2>
+						<pre><code class="javascript">function doSomething(number) {
+    if(param == 0) {
+        return 0;
+    } else if(param &gt; 0) {
+        return 1;
+    } else if(param &lt; 0) {
+        return -1;
+    } else if(typeof number != number) {
+        throw "NaN!";
+    } else {
+        throw "ExplodeException";
+    }
+}</code></pre>
+<aside class="notes">einer pro IF = 3<br>einer pro Sonderfall = 1 (keine Zahl)<br>einer pro bek. Bug = 1<br>=&gt; 5</aside>
+					</section>
 				</section>
 				<section>
 					<section>
