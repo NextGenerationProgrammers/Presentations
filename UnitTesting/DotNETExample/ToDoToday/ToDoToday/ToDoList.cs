@@ -25,7 +25,7 @@ namespace ToDoToday
             foreach (string item in items)
             {
                 string[] data = CSVToArray(item);
-                if (data == null)
+                if (data != null)
                 {
                     listItems.Add(new ToDoItem(data));
                     Content += data;

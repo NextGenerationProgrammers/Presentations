@@ -19,22 +19,20 @@ namespace ToDoToday.Tests
             ToDoList list = new ToDoList(mock.Object);
 
             mock.Setup(x => x.ReadFile("test")).Returns(new string[] { "1;TestToDo1;2018-11-03;0;1" });
-
+            
             var items = list.ReadList("test");
-            var item = new List<ToDoItem>();
-            item[0].Id = 1;
-            item[0].Name = "TestToDo1";
-            item[0].Date = DateTime.Parse("2018-11-03");
-            item[0].Done = true;
-            item[0].Type = new ToDoItemType("1");
-            Assert.AreEqual(item, items[0]);
+            ToDoItem item = new ToDoItem();
+            item.Id = 1;
+            item.Name = "TestToDo1";
+            item.Date = DateTime.Parse("2018-11-03");
+            item.Done = true;
+            item.Type = new ToDoItemType("0");
+            Assert.AreEqual(item.Id, items[0].Id); 
+            Assert.AreEqual(item.Name, items[0].Name); 
+            Assert.AreEqual(item.Date, items[0].Date); 
+            Assert.AreEqual(item.Done, items[0].Done); 
+            Assert.AreEqual(item.Type.getInt(), items[0].Type.getInt());
 
-        }
-
-        [TestMethod()]
-        public void WriteFile()
-        {
-            Assert.Fail();
         }
 
         [TestMethod()]

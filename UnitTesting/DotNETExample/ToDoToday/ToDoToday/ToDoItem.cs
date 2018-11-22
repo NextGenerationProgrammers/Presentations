@@ -10,13 +10,24 @@ namespace ToDoToday
         ToDoItemType type;
         bool done;
 
+        public ToDoItem()
+        {
+        }
+
         public ToDoItem(string[] data)
         {
             Id = Convert.ToInt32(data[0]);
             Name = data[1];
             Date = Convert.ToDateTime(data[2]);
             Type = new ToDoItemType(data[3]);
-            Done = Convert.ToBoolean(data[4]);
+            if (data[4] == "1")
+            {
+                Done = true;
+            }
+            else
+            {
+                Done = false;
+            }
         }
 
         public int Id { get => id; set => id = value; }
