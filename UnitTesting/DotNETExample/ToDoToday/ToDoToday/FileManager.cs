@@ -7,11 +7,24 @@ using System.Threading.Tasks;
 
 namespace ToDoToday
 {
-    class FileManager:IFileManager
+    public class FileManager:IFileManager
     {
         public string[] ReadFile(string path)
         {
             return File.ReadAllLines(path);
+        }
+
+        public bool SaveFile(string toDoList, string path)
+        {
+            try
+            {
+                File.WriteAllText(path, toDoList);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

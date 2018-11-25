@@ -9,5 +9,6 @@ namespace ToDoToday
     public interface IFileManager
     {
         string[] ReadFile(string path);
+        bool SaveFile(string content, string path);
     }
 }

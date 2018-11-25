@@ -30,6 +30,13 @@ namespace ToDoToday
             }
         }
 
+        public override string ToString()
+        {
+            string done = (Done == true ? "1" : "0");
+            string date = Date.ToString("yyyy-MM-dd");
+            return Convert.ToString(Id) + ";" + Name + ";" + date + ";" + Convert.ToString(Type.getInt()) + ";" + done;
+        }
+
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public DateTime Date { get => date; set => date = value; }

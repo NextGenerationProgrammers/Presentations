@@ -35,9 +35,14 @@ namespace ToDoToday
             return listItems;
         }
 
-        public void KeepList(List<ToDoItem> items)
+        public bool SaveList(string path)
         {
-            this.Items = items;
+            Content = "";
+            foreach (var item in Items)
+            {
+                Content += item.ToString() + "\n";
+            }
+            return manager.SaveFile(Content, path);
         }
 
         private string[] CSVToArray(string item)

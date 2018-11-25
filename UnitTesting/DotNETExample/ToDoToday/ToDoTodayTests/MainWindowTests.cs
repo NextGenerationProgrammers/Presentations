@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using ToDoTodayTests;
 
 namespace ToDoToday.Tests
 {
@@ -65,6 +66,14 @@ namespace ToDoToday.Tests
             Assert.AreEqual(0, type.getInt());
             type = new ToDoItemType("12938475092384750");
             Assert.AreEqual(0, type.getInt());
+        }
+
+        [TestMethod()]
+        public void ToDoItemToString()
+        {
+            ToDoItem item = new ToDoItem(new string[] { "1", "TestToDo1", "2018-11-03", "0", "1" });
+            string expected = "1;TestToDo1;2018-11-03;0;1";
+            Assert.AreEqual(expected, item.ToString());
         }
     }
 }

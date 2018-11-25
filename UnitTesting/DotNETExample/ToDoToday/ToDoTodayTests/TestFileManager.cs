@@ -14,5 +14,10 @@ namespace ToDoTodayTests
         {
             return Content;
         }
+
+        public bool SaveFile(string content, string path)
+        {
+            return true;
+        }
     }
 }
