@@ -1,0 +1,12 @@
+.bg-dark-transparent {
+    background-color: #343a4088;
+}
+
+.card-title {
+    margin-bottom: .1rem !important;
+}
+
+.result {
+    margin: 3px !important;
+    font-size: 18px !important;
+}
