@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>GIT</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
+		<link rel="stylesheet" href="../reveal.js/user/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/vs2015.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>GIT</section>
+				<section>GIT Allgemein 
+					<section> Git ist eine freie Software zur verteilten Versionsverwaltung von Dateien </section>
+					<section> Die Entwickler sind Junio C Hamano, Shawn O. Pearce und Linus Torvalds. </section>
+					<section> Die aktuellste Version ist 2.19.1 </section>
+				</section>
+				<section>Was macht Git
+					<section>Snapshots, nicht Diffs</section>
+					<section>3 Schritte bei Git</section>
+					<section>Du Bearbeitest Dateien in deinen Arbeitsverzeichnis
+						Du makierst DAtien für den nächsten Commit, indem Du Snapshots zur Staging Area Hinzufügst
+						Du legst den Commit an, wodurch die in der Staging Area vorgemerkten Snapshots dauerhaft im Git Verzeichnis gespeicher werden</section>
+						<section><img src="https://git-scm.com/figures/18333fig0106-tn.png">	
+				
+					</section>
+				</section>
+				<section>Eigenschaften von GIT
+					<section> ·Nicht-linear Entwickelt </section>
+					<section> ·Kein Zentraler Server </section>
+					<section> ·Datentranfer zwischen Repostorien</section>
+					<section> ·Kryptographische Sicherheit der Projektgschichte </section>
+					<section> ·Sichersystem und Datenversionierung </section>
+					<section> ·Säubern des Repositories</section>
+					<section> ·Interoperabilität </section>
+					<section> ·Web-Interface</section>
+				</section>
+				<section>Verwendung
+					<section> Die aktuelle Version wird produktiv für die Entwicklung vieler Open-Source-Projekte eingesetzt. Außerdem wird Git von einer Vielzahl Weiterer Open-source-Projekte genutzt.</section>
+					<section> 2017 gab Microsoft bekannt, dass Sie auf Git umsteigen</section>
+				</section>	
+				<section> Unterstütze Betriebssysteme
+					<section>Unix/Linux: Git läuft auf fast allen modernen unixartigen Systemen wie Linux, Solaris und so weiter</section>
+					<section>Windowns: Es gibt mehrere Portierung von Git. ·Git for Windows (früherer Name mysysGit)  ·Tortoise Git (erweiterung für den Windows Explorer (benötigt "Git für Windows")) · Die Cygwin-Umgebung enthält Git</section>
+				</section>
+				<section>
+					<h2>Danke für die Aufmerksamkeit</h2>
+					<h1>Fragen?🤔</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+
+				controls: true,
+				controlsLayout: 'bottom-right',
+				progress: true,
+				slideNumber: true,
+				fragmentInURL: false,
+				center: true,
+
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal.js/plugin/menu/menu.js' },
+					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
+				],
+				menu: {
+					themes: true,
+					themesPath: '../reveal.js/css/theme/'
+				},
+				spotlight: {
+					size: 60,
+					toggleSpotlightOnMouseDown: false,
+					presentingCursor: "pointer",
+					presentingCursorOnlyVisibleWhenSpotlightVisible: false
+				},
+				keyboard: {
+					67: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+					99: function() {
+						RevealSpotlight.toggleSpotlight();
+						RevealSpotlight.showSpotlight();
+					},
+				},
+			});
+		</script>
+	</body>
+</html>
