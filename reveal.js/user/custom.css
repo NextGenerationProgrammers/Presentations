@@ -2,11 +2,84 @@
     background: rgba(0,0,0,0);
 }
 
-.reveal section ul.grid-two{
+.reveal section ul.grid-two {
     -moz-column-count: 2; /* For FireFox */
     -moz-column-gap: 120px;
     -webkit-column-count: 2; /* For Safari/Chrome */
     -webkit-column-gap: 120px;
     column-count: 2; /* For when the standard gets fully supported */
     column-gap: 120px;
+}
+
+.reveal section .height-max-2 {
+    max-height: 20vh;
+}
+
+.reveal section .height-max-3 {
+    max-height: 30vh;
+}
+
+.reveal section .height-max-4 {
+    max-height: 40vh;
+}
+
+.reveal section .height-max-5 {
+    max-height: 50vh;
+}
+
+.reveal section .height-max-6 {
+    max-height: 60vh;
+}
+
+.reveal section .height-max-7 {
+    max-height: 70vh;
+}
+
+.reveal section .height-max-8 {
+    max-height: 80vh;
+}
+
+.reveal section .height-2 {
+    height: 20vh;
+}
+
+.reveal section .height-3 {
+    height: 30vh;
+}
+
+.reveal section .height-4 {
+    height: 40vh;
+}
+
+.reveal section .height-5 {
+    height: 50vh;
+}
+
+.reveal section .height-6 {
+    height: 60vh;
+}
+
+.reveal section .height-7 {
+    height: 70vh;
+}
+
+.reveal section .height-8 {
+    height: 80vh;
+}
+
+
+.reveal section .width-max-6 {
+    max-width: 60vw;
+}
+
+.reveal section .width-max-7 {
+    max-width: 70vw;
+}
+
+.reveal section .width-max-8 {
+    max-width: 80vw;
+}
+
+.reveal section .width-max-85 {
+    max-width: 85vw;
 }
