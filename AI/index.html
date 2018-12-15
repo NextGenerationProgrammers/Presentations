@@ -91,10 +91,12 @@
 						<h2>Code</h2>
 					</section>
 					<section>
-						<pre><code class="shell">pip install numpy
-pip install scipy</code></pre>
+						<h3>Install</h3>
+						<pre><code class="shell">$ pip install numpy
+$ pip install scipy</code></pre>
 					</section>
 					<section>
+						<h3>Class</h3>
 						<pre><code class="python height-max-7" id="code_neuronalNetwork">import numpy
 import scipy.special
 
@@ -151,6 +153,50 @@ class neuralNetwork:
         # update the weights for the links between the input and hidden layers
         self.wih += self.lr * numpy.dot((hidden_errors * hidden_outputs * (1.0 - hidden_outputs)), numpy.transpose(inputs))</code></pre>
 					</section>
+					<section>
+						<h3>Instance</h3>
+						<pre><code class="python"># number of input, hidden and output nodes
+input_nodes = 3
+hidden_nodes = 3
+output_nodes = 3
+
+# learning rate is 0.3
+learning_rate = 0.3
+
+# create instance of neural network
+n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)</code></pre>
+					</section>
+					<section>
+						<h3>Query</h3>
+						<pre><code class="python">print(n.query([1.0, 0.5, -1.5]))</code></pre>
+						<pre><code class="shell">$ array([[ 0.43461026],
+       [ 0.40331273],
+       [ 0.56675401]])</code></pre>
+					</section>
+					</section>
+				</section>
+				<section>
+					<h2>Advantages</h2>
+					<ul>
+						<li class="fragment">solving uncodable problems</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Disadvantages</h2>
+					<ul>
+						<li class="fragment">Blackbox</li>
+						<li class="fragment">training data
+							<ul>
+								<li>Quantity/Quality</li>
+								<li>Bias</li>
+								<li>Side effects</li>
+							</ul>
+						</li>
+						<li class="fragment">old brain Models</li>
+					</ul>
+					<aside class="notes">
+						Bias = Discrimination
+					</aside>
 				</section>
 				<section>
 					<h1>Fragen?🤔</h1>
@@ -182,7 +228,7 @@ class neuralNetwork:
 					{ src: '../reveal.js/plugin/menu/menu.js' },
 					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
 					{ src: '../reveal.js/plugin/jQuery/jquery-3.3.1.min.js' },
-					{ src: '../reveal.js/user/custom.js', async: true, callback: function() { Loader.loadToDOM("code/neuralNetwork.py", "code_neuronalNetwork"); } },
+					//{ src: '../reveal.js/user/custom.js', async: true, callback: function() { Loader.loadToDOM("code/neuralNetwork.py", "code_neuronalNetwork"); } },
 				],
 				menu: {
 					themes: true,
