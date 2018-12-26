@@ -37,14 +37,115 @@
 					</p>
 				</section>
 				<section>
-					<h2>Arten von NoSQL</h2>
-					<ul>
-						<li>Spaltenorientierte Datenbanken</li>
-						<li>Objektorientierte Datenbanken</li>
-						<li>Key-Value Stores</li>
-						<li>Dokumenten-Datenbanken</li>
-						<li>Graphen-Datenbanken</li>
-					</ul>
+					<section>
+						<h2>Arten von NoSQL</h2>
+						<ul>
+							<li>Spaltenorientierte Datenbanken</li>
+							<li>Objektorientierte Datenbanken</li>
+							<li>Key-Value Stores</li>
+							<li>Dokumenten-Datenbanken</li>
+							<li>Graphen-Datenbanken</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Spaltenorientierte Datenbanken</h2>
+						<p>Abfrage wie bei Zeilenorientierten Datenbanken</p>
+						<h3>Zeilenorientiert</h3>
+						<table>
+							<tr><td>Doe</td><td>John</td><td>12.07.1965</td></tr>
+							<tr><td>Moe</td><td>Mary</td><td>11.11.1942</td></tr>
+						</table>
+						<h3>Spaltenorientiert</h3>
+						<table>
+							<tr><td>Doe</td><td>Moe</td></tr>
+							<tr><td>John</td><td>Mary</td></tr>
+							<tr><td>12.07.1965</td><td>11.11.1942</td></tr>
+						</table>
+					</section>
+					<section>
+						<h2>Vorteile</h2>
+						<ul>
+							<li>Auswertung von gleichen Daten performanter</li>
+							<li>Statistiken können schnell dargestellt werden</li>
+							<li>Durchschnitte können schneller berechnet werden</li>
+						</ul>
+						<aside class="notes">
+							Nicht alle Datensätze müssen Stück für Stück gelesen werden, sonder nur einer
+						</aside>
+					</section>
+					<section>
+						<h2>Bekannte Vertreter</h2>
+						<ul>
+							<li>Cassandra von Apache</li>
+							<li>HBase von Apache</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Objektorientierte Datenbanken</h2>
+						<ul>
+							<li>Speichert Daten analog zur OOP</li>
+							<li>Keine Fremdschlüssel</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Bekannte Vertreter</h2>
+						<ul>
+							<li>db4o</li>
+						</ul>
+						<aside class="notes">db4o - Database for Objects</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Key-Value Stores</h2>
+						<ul>
+							<li>Vergleichbar mit sehr großer HashMap (Java)/Dictionary (.NET)</li>
+							<li>Speicherung als Schlüssel-Wert Paare</li>
+							<li>Value ist immer nur ein Wert (aber evtl. JSON)</li>
+							<li>Verwendung als Zwischenspeicher (im RAM - nicht als persistenter Speicher)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Vorteile</h2>
+						<ul>
+							<li>Schnell</li>
+							<li>Einfach aufgebaut</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Bekannte Vertreter</h2>
+						<ul>
+							<li>Riak</li>
+							<li>Redis</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Dokumenten-Datenbanken</h2>
+						<ul>
+							<li>Daten werden als Dokumente gespeichert</li>
+							<li>Nicht normalisiert</li>
+							<li>z.B. JSON Format</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Vorteile</h2>
+						<ul>
+							<li>Keine Fremdschlüssel</li>
+							<li>Kein festes Schema</li>
+							<li>In JS einfach zu verarbeiten</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Bekannte Vertreter</h2>
+						<ul>
+							<li>Mongo DB</li>
+							<li>Couch DB</li>
+						</ul>
+					</section>
 				</section>
 			</div>
 		</div>
