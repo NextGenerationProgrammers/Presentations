@@ -170,15 +170,20 @@ n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)</code></
 						<h3>Query</h3>
 						<pre><code class="python">print(n.query([1.0, 0.5, -1.5]))</code></pre>
 						<pre><code class="shell">$ array([[ 0.43461026],
-       [ 0.40331273],
-       [ 0.56675401]])</code></pre>
+    [ 0.40331273],
+    [ 0.56675401]])</code></pre>
 					</section>
 					</section>
+				</section>
+				<section>
+					<h2>Learning curve</h2>
+					<canvas id="chart_Learning_curve"></canvas>
 				</section>
 				<section>
 					<h2>Advantages</h2>
 					<ul>
 						<li class="fragment">solving uncodable problems</li>
+						<li class="fragment">compensate for deficits in competence through computer performance</li>
 					</ul>
 				</section>
 				<section>
@@ -196,10 +201,15 @@ n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)</code></
 					</ul>
 					<aside class="notes">
 						Bias = Discrimination
+						<ul>
+							<li>Microsoft Twitter Bot</li>
+							<li>dark-skinned people as monkeys</li>
+							<li>rails as indicator of trains</li>
+						</ul>
 					</aside>
 				</section>
 				<section>
-					<h1>Fragen?🤔</h1>
+					<h1>Questions?🤔</h1>
 				</section>
 			</div>
 		</div>
@@ -208,6 +218,43 @@ n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)</code></
 		<script src="../reveal.js/js/reveal.js"></script>
 
 		<script>
+
+			function initCharts() {
+				var ctx = document.getElementById("chart_Learning_curve").getContext('2d');
+				var myChart = new Chart(ctx, {
+				    type: 'line',
+				    data: {
+				    	labels:['', '', '', '', '', '', '', '', '', ''],
+				        datasets: [{
+				        	label: 'Easy',
+				            data: [0, 5, 7.2, 8.4, 9, 9.4, 9.7, 9.89, 9.95, 10],
+				            borderColor: 'rgba(52, 152, 219, 1)'
+				        }, {
+				        	label: 'Complex',
+				            data: [0, 0.1, 0.4, 1.36, 3.2, 6.8, 8.64, 9.6, 9.9, 10],
+				            borderColor: 'rgba(46, 204, 113, 1)'
+				        }, {
+				        	label: 'Conventional',
+				            data: [0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 10],
+				            borderColor: 'rgba(243, 156, 18, 1)'
+				        }]
+				    },
+				    options: {
+					  	scales: {
+					    	yAxes: [{
+					      		display : false
+					    	}],
+					    	xAxes: [{
+					      		display : false
+					    	}]
+					  	},
+				    	elements: {
+				    		point: { radius: 0 }
+				    	}
+				    }
+				});
+			}
+
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
@@ -228,6 +275,7 @@ n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)</code></
 					{ src: '../reveal.js/plugin/menu/menu.js' },
 					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
 					{ src: '../reveal.js/plugin/jQuery/jquery-3.3.1.min.js' },
+					{ src: '../reveal.js/plugin/Chart/Chart.js', async: true, callback: initCharts },
 					//{ src: '../reveal.js/user/custom.js', async: true, callback: function() { Loader.loadToDOM("code/neuralNetwork.py", "code_neuronalNetwork"); } },
 				],
 				menu: {
