@@ -5,6 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>AI</title>
+		<link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="img/favicons/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="img/favicons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
 
 		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
@@ -27,19 +40,190 @@
 			<div class="slides">
 				<section>
 					<h1>AI</h1>
-					<h2>Deep Learning</h2>
+					<h2>Artificial Neural Network</h2>
+					<img src="img/brain.png" class="plain nobg height-max-4 width-max-85">
+				</section>
+				<section>
+					<h3>What are neural networks?</h3>
+					<img src="img/types-of-AI.png" class="plain nobg fragment" width="944" height="547">
 				</section>
 				<section>
 					<section>
 						<h2>Concept</h2>
-					</section>like a
+					</section>
 					<section>
-						<p>works like a a simplified brain</p>
+						<p>works like a simplified brain</p>
+					</section>
+					<section>
+						<img src="img/example-3.png" class="plain nobg height-max-7 width-max-85">
+						<aside class="notes">
+							<ul>
+								<li>Fully connected Network</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 				<section>
-					<h2>Danke für die Aufmerksamkeit</h2>
-					<h1>Fragen?🤔</h1>
+					<section>
+						<h2>Math</h2>
+					</section>
+					<section>
+						<h3>Artificial Neuron</h3>
+						<img src="img/ArtificialNeuronModel_deutsch_beige.png" class="plain nobg height-max-5 width-max-85">
+					</section>
+					<section>
+						<h3>Matrix multiplication</h3>
+						<img src="img/matrix-multiply.png" class="plain nobg">
+					</section>
+					<section>
+						<img src="img/matrixNeuron.png" class="plain nobg height-max-8 width-max-85">
+					</section>
+					<section>
+						<h3>Activation Function</h3>
+						<img src="img/Sigmoid.png" class="plain nobg height-max-7 width-max-85">
+					</section>
+					<section>
+						<h3>Backpropagation</h3>
+						<img src="img/Backpropagation.png" class="plain nobg height-max-7 width-max-85">
+						<aside class="notes">
+							<ul>
+								<li>loss function</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h3>Learning Rate</h3>
+						<img src="img/learning_rate.png" class="plain nobg height-max-7 width-max-85">
+					</section>
+					<section>
+						<h4>Problem</h4>
+						<img src="img/Backpropagation_problem.png" class="plain nobg height-max-7 width-max-85">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Code</h2>
+					</section>
+					<section>
+						<h3>Install</h3>
+						<pre><code class="shell">$ pip install numpy
+$ pip install scipy</code></pre>
+					</section>
+					<section>
+						<h3>Class</h3>
+						<pre><code class="python height-max-7" id="code_neuronalNetwork">import numpy
+import scipy.special
+
+class neuralNetwork:
+
+    def __init__(self, inputnodes, hiddennodes, outputnodes, learningrate):
+        self.inodes = inputnodes
+        self.hnodes = hiddennodes
+        self.onodes = outputnodes
+
+        # link weight matrices, wih and who
+        # weights inside the arrays are w_i_j, where link is from node i to node j in the next layer
+        self.wih = numpy.random.normal(0.0, pow(self.inodes, -0.5), (self.hnodes, self.inodes))
+        self.who = numpy.random.normal(0.0, pow(self.hnodes, -0.5), (self.onodes, self.hnodes))
+
+        self.lr = learningrate
+
+        # activation function is the sigmoid function
+        self.activation_function = lambda x: scipy.special.expit(x)
+
+    def query(self, inputs_list):
+        # convert inputs list to 2d array
+        inputs = numpy.array(inputs_list, ndmin=2).T
+
+        # calculate signals into hidden layer
+        hidden_inputs = numpy.dot(self.wih, inputs)
+        # calculate the signals emerging from hidden layer
+        hidden_outputs = self.activation_function(hidden_inputs)
+
+        # calculate signals into final output layer
+        final_inputs = numpy.dot(self.who, hidden_outputs)
+        # calculate the signals emerging from final output layer
+        final_outputs = self.activation_function(final_inputs)
+
+        return final_outputs
+
+    def train(self, inputs_list, targets_list):
+        targets = numpy.array(targets_list, ndmin=2).T
+
+        inputs = numpy.array(inputs_list, ndmin=2).T
+        hidden_inputs = numpy.dot(self.wih, inputs)
+        hidden_outputs = self.activation_function(hidden_inputs)
+        final_inputs = numpy.dot(self.who, hidden_outputs)
+        final_outputs = self.activation_function(final_inputs)
+
+        # output layer error is the (target - actual)
+        output_errors = targets - final_outputs
+        # hidden layer error is the output_errors, split by weights, recombined at hidden nodes
+        hidden_errors = numpy.dot(self.who.T, output_errors)
+
+        # update the weights for the links between the hidden and output layers
+        self.who += self.lr * numpy.dot((output_errors * final_outputs * (1.0 - final_outputs)), numpy.transpose(hidden_outputs))
+
+        # update the weights for the links between the input and hidden layers
+        self.wih += self.lr * numpy.dot((hidden_errors * hidden_outputs * (1.0 - hidden_outputs)), numpy.transpose(inputs))</code></pre>
+					</section>
+					<section>
+						<h3>Instance</h3>
+						<pre><code class="python"># number of input, hidden and output nodes
+input_nodes = 3
+hidden_nodes = 3
+output_nodes = 3
+
+# learning rate is 0.3
+learning_rate = 0.3
+
+# create instance of neural network
+n = neuralNetwork(input_nodes,hidden_nodes,output_nodes, learning_rate)</code></pre>
+					</section>
+					<section>
+						<h3>Query</h3>
+						<pre><code class="python">print(n.query([1.0, 0.5, -1.5]))</code></pre>
+						<pre><code class="shell">$ array([[ 0.43461026],
+    [ 0.40331273],
+    [ 0.56675401]])</code></pre>
+					</section>
+					</section>
+				</section>
+				<section data-state="chartLearningCurve">
+					<h2>Learning curve</h2>
+					<canvas id="chart_Learning_curve" style="height: 478px"></canvas>
+				</section>
+				<section>
+					<h2>Advantages</h2>
+					<ul>
+						<li class="fragment">solving uncodable problems</li>
+						<li class="fragment">compensate for deficits in competence through computer performance</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Disadvantages</h2>
+					<ul>
+						<li class="fragment">Blackbox</li>
+						<li class="fragment">training data
+							<ul>
+								<li>Quantity/Quality</li>
+								<li>Bias</li>
+								<li>Side effects</li>
+							</ul>
+						</li>
+						<li class="fragment">old brain Models</li>
+					</ul>
+					<aside class="notes">
+						Bias = Discrimination
+						<ul>
+							<li>Microsoft Twitter Bot</li>
+							<li>dark-skinned people as monkeys</li>
+							<li>rails as indicator of trains</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h1>Questions?🤔</h1>
 				</section>
 			</div>
 		</div>
@@ -48,6 +232,45 @@
 		<script src="../reveal.js/js/reveal.js"></script>
 
 		<script>
+
+			function initCharts() {
+				var ctx = document.getElementById("chart_Learning_curve").getContext('2d');
+				var data = {
+					labels:['', '', '', '', '', '', '', '', '', ''],
+				    datasets: [{
+				    	label: 'Easy',
+				        data: [0, 5, 7.2, 8.4, 9, 9.4, 9.7, 9.89, 9.95, 10],
+				        borderColor: 'rgba(52, 152, 219, 1)'
+				    }, {
+				    	label: 'Complex',
+				        data: [0, 0.1, 0.4, 1.36, 3.2, 6.8, 8.64, 9.6, 9.9, 10],
+				        borderColor: 'rgba(46, 204, 113, 1)'
+				    }, {
+				    	label: 'Conventional',
+				        data: [0, 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 10],
+				        borderColor: 'rgba(243, 156, 18, 1)'
+				    }]
+				};
+				var options = {
+					scales: {
+					    yAxes: [{
+							display : false
+					    }],
+					    xAxes: [{
+					    	display : false
+					  	}]
+					},
+				    elements: {
+				    	point: { radius: 0 }
+				    }
+				}
+				var chartLearningCurve = new Chart(ctx, {
+				    type: 'line',
+				    data: data,
+				    options: options
+				});
+			}
+
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
@@ -67,6 +290,9 @@
 					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: '../reveal.js/plugin/menu/menu.js' },
 					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
+					{ src: '../reveal.js/plugin/jQuery/jquery-3.3.1.min.js' },
+					{ src: '../reveal.js/plugin/Chart/Chart.min.js', async: true},
+					//{ src: '../reveal.js/user/custom.js', async: true, callback: function() { Loader.loadToDOM("code/neuralNetwork.py", "code_neuronalNetwork"); } },
 				],
 				menu: {
 					themes: true,
@@ -89,6 +315,9 @@
 					},
 				},
 			});
+			Reveal.addEventListener('chartLearningCurve', function() {
+				initCharts();
+			}, false );
 		</script>
 	</body>
 </html>
