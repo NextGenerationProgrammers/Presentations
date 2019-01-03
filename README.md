@@ -9,4 +9,5 @@ Presentations about programming and other IT topics
 - Unit Testing
 - Javasript
 - Additive Manufacturing
-- GIT 
+- GIT
+- AI (Machine Learning)
