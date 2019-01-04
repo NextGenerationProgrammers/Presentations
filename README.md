@@ -4,6 +4,7 @@ Presentations about programming and other IT topics
 ## Presentation overview
 - <a href="https://nextgenerationprogrammers.github.io/Presentations/Python/index.html">Python</a>
 - <a href="https://nextgenerationprogrammers.github.io/Presentations/RSA/index.html">RSA</a>
+- <a href="https://nextgenerationprogrammers.github.io/Presentations/NoSQL/index.html">NoSQL</a>
 - Data security
 - Polymorphism
 - Unit Testing
