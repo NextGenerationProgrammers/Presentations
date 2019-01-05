@@ -59,10 +59,6 @@
 							<li>Komponententest</li>
 							<li>Integrationstest</li>
 							<li>Systemtest</li>
-							<li>Abnahmetest</li>
-							<li>Lasttest</li>
-							<li>Smoketest</li>
-							<li>Exploratives Testen</li>
 						</ul>
 					</section>
 					<section>
@@ -202,6 +198,7 @@ public void TestMethod1()
 						<ul>
 							<li>Programmcode, der anstelle eines anderen Programmcodes steht</li>
 							<li>Code der ersetzt wird wurde noch nicht entwickelt oder funktioniert noch nicht</li>
+							<li>Gibt immer harte Werte zurück (getValue() gibt immer den Wert 5 zurück)</li>
 						</ul>
 						<aside class="notes">Zu testende Methode benötigt diese andere Funktion aber</aside>
 					</section>
@@ -215,6 +212,7 @@ public void TestMethod1()
 						<ul>
 							<li>Nachgeahmtes Objekt im System</li>
 							<li>Verifiziert, ob das zu testende Objekt mit dem Nachgeahmten korrekt kommuniziert</li>
+							<li>Kontrolliert ob, wie oft, mit welchen Parametern, in welcher Reihenfolge welche Methoden aufgerufen werden </li>
 						</ul>
 					</section>
 					<section>
@@ -229,6 +227,7 @@ public void TestMethod1()
   }
 }
 
+//Integrationtest!!
 [Test]
 public void TestLogError()
 {
@@ -252,6 +251,16 @@ public void TestLogError()
 							</tr>
 							<tr>
 								<td>Fällt durch Tests</td>
+								<td class="fragment">&#10060;</td>
+								<td class="fragment">&#10004;</td>
+							</tr>
+							<tr>
+								<td>Kann immer harte Werte zurückgeben</td>
+								<td class="fragment">&#10004;</td>
+								<td class="fragment">&#10004;</td>
+							</tr>
+							<tr>
+								<td>Kann Übergabeparameter überprüfen</td>
 								<td class="fragment">&#10060;</td>
 								<td class="fragment">&#10004;</td>
 							</tr>
