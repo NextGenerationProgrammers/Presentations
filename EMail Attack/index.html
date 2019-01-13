@@ -6,8 +6,8 @@
 
 		<title>E-Mail Attack</title>
 
-		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../reveal.js/plugin/bootstrap-4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
 		<link rel="stylesheet" href="../reveal.js/user/custom.css">
 
@@ -30,24 +30,102 @@
 					<h1>E-Mail Attack</h1>
 				</section>
 				<section>
+					<!--Situation 1-->
 					<section>
 						<h2>Situation 1</h2>
+						<img  src="img/Phishing Mail.jpg" class="plain nobg" />
 					</section>
 					<section>
 						<div class="quiz">
-							<h5>Question?</h5>
-							<button class="answer true">1</button>
-							<button class="answer false">2</button>
+							<h2>Frage 1</h2>
+							<h6>Ist diese  E-Mail seriös?</h6>
+							<button class="answer false">Ja</button>
+							<button class="answer true">Nein</button>
 						</div>
 					</section>
 					<section>
 						<div class="quiz">
-							<button class="answer false">1</button>
-							<button class="answer true">2</button>
-							<button class="answer true">3</button>
+							<h2>Frage 2</h2>
+							<h6>Warum?</h6>
+							<button class="answer true">Da die E-Mail Adresse nicht stimmt</button>
+							<button class="answer false">Da das UBS-Logo falsch ist</button>
 						</div>
+					</section>
+					<section>
+						<h3>Phishing</h3>
+						<p>
+							Phishing ist ein von dem englischen Wort „fishing“ abgeleiteter Begriff,
+							der ins Deutsche übersetzt Angeln oder Fischen bedeutet. Der Begriff verdeutlicht bildlich,
+							um was es geht: das betrügerische Angeln oder Fischen von sensiblen Daten wie Passwörter mithilfe verschiedener
+							Köder im Internet. In der Regel liegt das Augenmerk der Phisher auf Zugangsdaten für Onlinebankingaccounts oder
+							Informationen von Kreditkarten.
+						</p>
 					</section>
 				</section>
+
+				<section>
+					<!--Situation 2-->
+					<section>
+						<h2>Situation 2</h2>
+						<img src="img/Telekom.png" class="plain nobg" />
+					</section>
+					<section>
+						<div class="quiz">
+							<h2>Frage 1</h2>
+							<h6>Ist diese  E-Mail seriös?</h6>
+							<button class="answer false">Ja</button>
+							<button class="answer true">Nein</button>
+						</div>
+					</section>
+					<section>
+						<div class="quiz">
+							<h2>Frage 2</h2>
+							<h6>Was ist die Gefahr bei dieser E-Mail?</h6>
+							<button class="answer false">In der Rechung sind flasche Kontodaten angegeben, sodass Sie den Betrag an den falschen Empfänger überweisen.</button>
+							<button class="answer true">Nach entpacken kann es passieren, dass Ihr Computer verschlüsselt wird.</button>
+							<button class="answer true">Nach entpacken kann es passieren, dass Ihr Computer sehr langsam wird und für illegale Tätigkeiten verwendet wird.</button>
+							<button class="answer false">Nach entpacken kann es passieren, dass Ihr Telekom-Account gehackt wird.</button>
+							<button class="answer true">Nach entpacken kann es passieren, dass Ihr Computer lahmgelegt wird.</button>
+						</div>
+					</section>
+					<section>
+						<h3>Malware</h3>
+						<p>
+							E-Mail-Würmer müssen klar von anderen bekannten Computerwürmern unterschieden werden.
+							Normalerweise benötigen diese Würmer für ihre Verbreitung ein Hilfsprogramm
+							, welches das potentielle Opfer ausführen muss, damit die E-Mail-Würmer Zugang zum jeweiligen E-Mail-Programm erhalten.
+							Bei dieser Hilfe kann es sich z.B. um das Öffnen eines E-Mail-Anhangs handeln.
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<!--Situation 3-->
+					<section>
+						<h2>Situation 3</h2>
+						<img  src="img/digitally-signed-email.png" class="plain nobg" />
+					</section>
+					<section>
+						<div class="quiz">
+							<h2>Frage 1</h2>
+							<h6>Ist diese  E-Mail seriös? Warum?</h6>
+							<button class="answer false">Ja, da ich den Absender kenne.</button>
+							<button class="answer true">Ja, da die E-Mail signiert wurde.</button>
+							<button class="answer false">Nein, da die E-Mail einen Kryptotrojaner beinhaltet.</button>
+						</div>
+					</section>
+					<section>
+						<h3>E-MailVerschlüsselung</h3>
+						<p>
+							Durch eine E-Mail Verschlüsselung wie "PGP"
+							, kann man dafür sorgen
+							, dass die die Authentizität des Senders
+							, die Integrität der Nachricht
+							und die Vertraulichkeit gewährleistet ist.
+						</p>
+					</section>
+				</section>
+
 				<section>
 					<h1>Fragen?</h1>
 				</section>
@@ -75,15 +153,10 @@
 					{ src: '../reveal.js/plugin/markdown/markdown.js' },
 					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
 					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '../reveal.js/plugin/menu/menu.js' },
 					{ src: '../reveal.js/plugin/spotlight/spotlight.js' },
 					{ src: '../reveal.js/plugin/jQuery/jquery-3.3.1.min.js' },
 					{ src: '../reveal.js/plugin/Quizy/js/quizy.js', async: true, callback: function() { quizy.init({'outline': true, 'clearTxt': 'X', 'submitTxt': 'Senden', 'errorTxt': '{0} Fehler', 'solvedTxt': 'Gel&ouml;st'}); } },
 				],
-				menu: {
-					themes: true,
-					themesPath: '../reveal.js/css/theme/'
-				},
 				spotlight: {
 					size: 60,
 					toggleSpotlightOnMouseDown: false,
