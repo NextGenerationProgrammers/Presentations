@@ -2,11 +2,13 @@
 Presentations about programming and other IT topics
 
 ## Presentation overview
-- Python
-- RSA
+- <a href="https://nextgenerationprogrammers.github.io/Presentations/Python/index.html">Python</a>
+- <a href="https://nextgenerationprogrammers.github.io/Presentations/RSA/index.html">RSA</a>
+- <a href="https://nextgenerationprogrammers.github.io/Presentations/NoSQL/index.html">NoSQL</a>
 - Data security
 - Polymorphism
 - Unit Testing
-- Javasript
+- <a href="https://nextgenerationprogrammers.github.io/Presentations/JavaScript/index.html">JavaScript</a>
 - Additive Manufacturing
-- GIT 
+- GIT
+- <a href="https://nextgenerationprogrammers.github.io/Presentations/AI/index.html">AI</a> (Machine Learning)
