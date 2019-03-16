@@ -143,20 +143,15 @@ public void TestMethod1()
 }</code></pre>
 					</section>
 					<section>
-						<h2>Wie viele Tests brauche ich?</h2>
+						<h2>Code Coverage - Testabdeckung</h2>
 						<ul>
-							<li>1 Testfall pro Verhalten einer Funktion (Auch Sonderfälle, Randfälle, Fehlerfälle)</li>
-							<li>1 Testfall pro möglichem Codepfad</li>
-							<li>1 Testfall für jeden bekannten Bug</li>
-							<ul>
-								<li>Hilft beim Reproduzieren der Fehler</li>
-								<li>Testet die Behebung des Fehlers</li>
-								<li>Schützt davor, dass der selbe Bug nicht nochmal kommt</li>
-							</ul>
+							<li>Anweisungsabdeckung</li>
+							<li>Zweigabdeckung</li>
+							<li>Pfadabdeckung</li>
 						</ul>
 					</section>
 					<section>
-						<h2>Wie viele Tests werden hier benötigt?</h2>
+						<h2>Wie viele Tests?</h2>
 						<pre><code class="javascript">function doSomething(number) {
     if(param == 0) {
         return 0;
@@ -175,19 +170,20 @@ public void TestMethod1()
 				</section>
 				<section>
 					<section>
-						<h1>Fakes</h1>
+						<h2>Abhängigkeiten auflösen</h2>
 						<p>Vollständig isoliertes testen ist nicht ohne Weiteres möglich! Darum gibt es:</p>
 						<div class="fragment">
 							<ul>
 								<li>Stubs</li>
 								<li>Mocks</li>
+								<li>...</li>
 							</ul><br>
 							<img src="img/StubOrMock.svg" alt="Unterschied Stub/Mock">
 						</div>
 						<aside class="notes">Manuell oder durch Framework</aside>
 					</section>
 					<section>
-						<h2>Ziel von Fakes</h2>
+						<h2>Ziel</h2>
 						<ul>
 							<li>Externe Abhängigkeiten auflösen</li>
 							<li>Vollständig isoliertes Testen ermöglichen</li>
@@ -297,7 +293,7 @@ public void TestLogError()
 						<ul>
 							<li>Java - Mockito</li>
 							<li>.NET - Moq, Rhino Mocks</li>
-							<li>C++ - Google C++ Mocking Framework</li>
+							<li>C++ - Google Mock</li>
 						</ul>
 					</section>
 					<section>
